@@ -1,7 +1,7 @@
 ******************************************************************************
              TMS320C2000 Linker PC v16.9.3                     
 ******************************************************************************
->> Linked Tue Mar 07 11:26:39 2023
+>> Linked Sun Mar 12 15:06:53 2023
 
 OUTPUT FILE NAME:   <lab3.out>
 ENTRY POINT SYMBOL: "_c_int00"  address: 003f8130
@@ -52,8 +52,8 @@ SECTION ALLOCATION MAP
 section   page    origin      length       input sections
 --------  ----  ----------  ----------   ----------------
 .text      0    003f8002    00000211     
-                  003f8002    000000b5     led_cputimer.obj (.text)
-                  003f80b7    00000079     led_cputimer.obj (.text:retain)
+                  003f8002    000000b5     ti.obj (.text)
+                  003f80b7    00000079     ti.obj (.text:retain)
                   003f8130    00000054     rts2800_ml.lib : boot28.obj (.text)
                   003f8184    00000029                    : exit.obj (.text)
                   003f81ad    00000024                    : cpy_tbl.obj (.text)
@@ -67,7 +67,7 @@ section   page    origin      length       input sections
                   003f8213    0000000e     rts2800_ml.lib : exit.obj (.cinit)
                   003f8221    00000005                    : _lock.obj (.cinit:__lock)
                   003f8226    00000005                    : _lock.obj (.cinit:__unlock)
-                  003f822b    00000004     led_cputimer.obj (.cinit)
+                  003f822b    00000004     ti.obj (.cinit)
                   003f822f    00000002     --HOLE-- [fill = 0]
 
 .stack     1    00000400    00000400     UNINITIALIZED
@@ -175,7 +175,7 @@ CsmPwlFile
                   003fffc0    00000002     rts2800_ml.lib : boot28.obj (.reset)
 
 .ebss      1    003f9000    00000014     UNINITIALIZED
-                  003f9000    00000009     led_cputimer.obj (.ebss)
+                  003f9000    00000009     ti.obj (.ebss)
                   003f9009    00000001     --HOLE--
                   003f900a    00000006     rts2800_ml.lib : exit.obj (.ebss)
                   003f9010    00000002                    : _lock.obj (.ebss:__lock)
@@ -187,7 +187,7 @@ MODULE SUMMARY
        ------                           ----   ----------------   ------------------
     .\
        DSP281x_GlobalVariableDefs.obj   0      0                  1387              
-       led_cputimer.obj                 302    4                  9                 
+       ti.obj                           302    4                  9                 
     +--+--------------------------------+------+------------------+--------------------+
        Total:                           302    4                  1396              
                                                                                     

@@ -2,16 +2,6 @@
 **** Build of configuration Debug for project lab3 ****
 
 "C:\\Program Files (x86)\\TI\\ccsv7\\utils\\bin\\gmake" -k -j 8 all -O 
-'Building file: ../led_cputimer.c'
-'Invoking: C2000 Compiler'
-"C:/Program Files (x86)/TI/ccsv7/tools/compiler/ti-cgt-c2000_16.9.3.LTS/bin/cl2000" -v28 -ml -mt --include_path="C:/Users/Eduard/workspace_v7/dsplab281x/headers" --advice:performance=all -g --diag_warning=225 --diag_wrap=off --display_error_number --preproc_with_compile --preproc_dependency="led_cputimer.d"  "../led_cputimer.c"
-'Finished building: ../led_cputimer.c'
-' '
-'Building target: lab3.out'
-'Invoking: C2000 Linker'
-"C:/Program Files (x86)/TI/ccsv7/tools/compiler/ti-cgt-c2000_16.9.3.LTS/bin/cl2000" -v28 -ml -mt --advice:performance=all -g --diag_warning=225 --diag_wrap=off --display_error_number -z -m"lab3.map" --stack_size=0x400 --warn_sections -i"C:/Program Files (x86)/TI/ccsv7/tools/compiler/ti-cgt-c2000_16.9.3.LTS/lib" -i"C:/Program Files (x86)/TI/ccsv7/tools/compiler/ti-cgt-c2000_16.9.3.LTS/include" --reread_libs --diag_wrap=off --display_error_number --xml_link_info="lab3_linkInfo.xml" --rom_model -o "lab3.out" "./DSP281x_GlobalVariableDefs.obj" "./led_cputimer.obj" "../DSP281x_Headers_nonBIOS.cmd" "../F2812_EzDSP_RAM_lnk.cmd"  -llibc.a 
-<Linking>
-'Finished building target: lab3.out'
-' '
+gmake[1]: 'lab3.out' is up to date.
 
 **** Build Finished ****

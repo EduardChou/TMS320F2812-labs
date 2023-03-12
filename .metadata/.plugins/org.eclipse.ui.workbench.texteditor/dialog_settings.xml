@@ -2,20 +2,20 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="LedOut" key="selection"/>
+		<item value="Write_LED" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="write_led"/>
+			<item value="IFR"/>
 			<item value="ledout"/>
 			<item value="ss"/>
 			<item value="h+="/>
 			<item value="clock_ss"/>
 			<item value="LEDrun"/>
 			<item value="LEDout"/>
-			<item value="LED"/>
-			<item value="gpfdat"/>
 		</list>
 		<list key="replacehistory">
 		</list>

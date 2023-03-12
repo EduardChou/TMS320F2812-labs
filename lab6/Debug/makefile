@@ -10,13 +10,13 @@ GEN_OPTS__FLAG :=
 GEN_CMDS__FLAG := 
 
 ORDERED_OBJS += \
+"./ADC.obj" \
 "./DSP281x_CpuTimers.obj" \
 "./DSP281x_DefaultIsr.obj" \
 "./DSP281x_GlobalVariableDefs.obj" \
 "./DSP281x_PieCtrl.obj" \
 "./DSP281x_PieVect.obj" \
 "./DSP281x_SysCtrl.obj" \
-"./led_cputimer.obj" \
 "../DSP281x_Headers_nonBIOS.cmd" \
 "../F2812_EzDSP_RAM_lnk.cmd" \
 $(GEN_CMDS__FLAG) \
@@ -160,8 +160,8 @@ lab6.hex: $(EXE_OUTPUTS)
 # Other Targets
 clean:
 	-$(RM) $(BIN_OUTPUTS__QUOTED)$(EXE_OUTPUTS__QUOTED)
-	-$(RM) "DSP281x_CpuTimers.obj" "DSP281x_DefaultIsr.obj" "DSP281x_GlobalVariableDefs.obj" "DSP281x_PieCtrl.obj" "DSP281x_PieVect.obj" "DSP281x_SysCtrl.obj" "led_cputimer.obj" 
-	-$(RM) "DSP281x_CpuTimers.d" "DSP281x_DefaultIsr.d" "DSP281x_GlobalVariableDefs.d" "DSP281x_PieCtrl.d" "DSP281x_PieVect.d" "DSP281x_SysCtrl.d" "led_cputimer.d" 
+	-$(RM) "ADC.obj" "DSP281x_CpuTimers.obj" "DSP281x_DefaultIsr.obj" "DSP281x_GlobalVariableDefs.obj" "DSP281x_PieCtrl.obj" "DSP281x_PieVect.obj" "DSP281x_SysCtrl.obj" 
+	-$(RM) "ADC.d" "DSP281x_CpuTimers.d" "DSP281x_DefaultIsr.d" "DSP281x_GlobalVariableDefs.d" "DSP281x_PieCtrl.d" "DSP281x_PieVect.d" "DSP281x_SysCtrl.d" 
 	-@echo 'Finished clean'
 	-@echo ' '
 

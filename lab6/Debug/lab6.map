@@ -1,7 +1,7 @@
 ******************************************************************************
              TMS320C2000 Linker PC v16.9.3                     
 ******************************************************************************
->> Linked Tue Mar 07 11:30:26 2023
+>> Linked Sun Mar 12 15:20:43 2023
 
 OUTPUT FILE NAME:   <lab6.out>
 ENTRY POINT SYMBOL: "_c_int00"  address: 003f8643
@@ -52,9 +52,9 @@ SECTION ALLOCATION MAP
 section   page    origin      length       input sections
 --------  ----  ----------  ----------   ----------------
 .text      0    003f8002    00000857     
-                  003f8002    000003b1     led_cputimer.obj (.text)
+                  003f8002    000003b1     ADC.obj (.text)
                   003f83b3    0000014f     DSP281x_DefaultIsr.obj (.text:retain)
-                  003f8502    000000e7     led_cputimer.obj (.text:retain)
+                  003f8502    000000e7     ADC.obj (.text:retain)
                   003f85e9    0000005a     rts2800_ml.lib : fs_mpy28.obj (.text)
                   003f8643    00000054                    : boot28.obj (.text)
                   003f8697    00000047     DSP281x_SysCtrl.obj (.text)
@@ -73,7 +73,7 @@ section   page    origin      length       input sections
                   003f8858    00000001                    : startup.obj (.text)
 
 .cinit     0    003f8859    00000071     
-                  003f8859    00000057     led_cputimer.obj (.cinit)
+                  003f8859    00000057     ADC.obj (.cinit)
                   003f88b0    0000000e     rts2800_ml.lib : exit.obj (.cinit)
                   003f88be    00000005                    : _lock.obj (.cinit:__lock)
                   003f88c3    00000005                    : _lock.obj (.cinit:__unlock)
@@ -187,7 +187,7 @@ CsmPwlFile
                   003f9000    00000100     DSP281x_PieVect.obj (.econst:_PieVectTableInit)
 
 .ebss      1    003f9100    00000046     UNINITIALIZED
-                  003f9100    00000034     led_cputimer.obj (.ebss)
+                  003f9100    00000034     ADC.obj (.ebss)
                   003f9134    00000008     DSP281x_CpuTimers.obj (.ebss)
                   003f913c    00000002     rts2800_ml.lib : _lock.obj (.ebss:__lock)
                   003f913e    00000002                    : _lock.obj (.ebss:__unlock)
@@ -199,7 +199,7 @@ MODULE SUMMARY
        ------                           ----   ----------------   ------------------
     .\
        DSP281x_GlobalVariableDefs.obj   0      0                  1387              
-       led_cputimer.obj                 1176   87                 52                
+       ADC.obj                          1176   87                 52                
        DSP281x_DefaultIsr.obj           335    0                  0                 
        DSP281x_PieVect.obj              32     256                0                 
        DSP281x_CpuTimers.obj            70     0                  8                 

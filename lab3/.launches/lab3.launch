@@ -5,7 +5,6 @@
 <stringAttribute key="com.ti.ccstudio.debug.debugModel.ATTR_PROGRAM.Texas Instruments XDS100v3 USB Emulator_0/C28xx" value="${build_artifact:lab3}"/>
 <stringAttribute key="com.ti.ccstudio.debug.debugModel.ATTR_PROJECT.Texas Instruments XDS100v3 USB Emulator_0/C28xx" value="lab3"/>
 <stringAttribute key="com.ti.ccstudio.debug.debugModel.ATTR_TARGET_CONFIG" value="${target_config_active_default:lab3}"/>
-<stringAttribute key="com.ti.ccstudio.debug.debugModel.MRU_PROGRAM.Texas Instruments XDS100v3 USB Emulator_0/C28xx" value="C:/Users\Eduard\workspace_v7\lab3\Debug\lab3.out"/>
 <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
 <listEntry value="/lab3"/>
 </listAttribute>
