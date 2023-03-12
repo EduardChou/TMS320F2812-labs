@@ -1,0 +1,8 @@
+---------------------------  ADC_Flash.pjt - Debug  ---------------------------
+[ADC_Flash.c] "C:\CCStudio_v3.1\C2000\cgtools\bin\cl2000" -g -q -as -fr"F:/jacky281x/main/ADC_Flash/Debug" -i"../../headers" -i"../headers" -d"_DEBUG" -d"LARGE_MODEL" -ml -v28 -@"Debug.lkf" "ADC_Flash.c"
+
+[Linking...] "C:\CCStudio_v3.1\C2000\cgtools\bin\cl2000" -@"Debug.lkf"
+<Linking>
+
+Build Complete,
+  0 Errors, 0 Warnings, 0 Remarks.

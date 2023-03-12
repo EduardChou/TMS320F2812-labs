@@ -1,0 +1,67 @@
+
+**** Build of configuration Debug for project lab7_mod ****
+
+"C:\\Program Files (x86)\\TI\\ccsv7\\utils\\bin\\gmake" -k -j 8 all -O 
+'Building file: ../DSP281x_CpuTimers.c'
+'Invoking: C2000 Compiler'
+"C:/Program Files (x86)/TI/ccsv7/tools/compiler/ti-cgt-c2000_16.9.3.LTS/bin/cl2000" -v28 -ml -mt --include_path="C:/Users/Eduard/workspace_v7/lab7_mod" --include_path="C:/Program Files (x86)/TI/ccsv7/tools/compiler/ti-cgt-c2000_16.9.3.LTS/include" -g --diag_warning=225 --diag_wrap=off --display_error_number --preproc_with_compile --preproc_dependency="DSP281x_CpuTimers.d"  "../DSP281x_CpuTimers.c"
+
+>> Compilation failure
+subdir_rules.mk:9: recipe for target 'DSP281x_CpuTimers.obj' failed
+"../DSP281x_CpuTimers.c", line 25: fatal error #1965: cannot open source file "DSP281x_Device.h"
+1 catastrophic error detected in the compilation of "../DSP281x_CpuTimers.c".
+Compilation terminated.
+gmake: *** [DSP281x_CpuTimers.obj] Error 1
+'Building file: ../DSP281x_DefaultIsr.c'
+'Invoking: C2000 Compiler'
+"C:/Program Files (x86)/TI/ccsv7/tools/compiler/ti-cgt-c2000_16.9.3.LTS/bin/cl2000" -v28 -ml -mt --include_path="C:/Users/Eduard/workspace_v7/lab7_mod" --include_path="C:/Program Files (x86)/TI/ccsv7/tools/compiler/ti-cgt-c2000_16.9.3.LTS/include" -g --diag_warning=225 --diag_wrap=off --display_error_number --preproc_with_compile --preproc_dependency="DSP281x_DefaultIsr.d"  "../DSP281x_DefaultIsr.c"
+
+>> Compilation failure
+subdir_rules.mk:16: recipe for target 'DSP281x_DefaultIsr.obj' failed
+"../DSP281x_DefaultIsr.c", line 18: fatal error #1965: cannot open source file "DSP281x_Device.h"
+1 catastrophic error detected in the compilation of "../DSP281x_DefaultIsr.c".
+Compilation terminated.
+gmake: *** [DSP281x_DefaultIsr.obj] Error 1
+'Building file: ../DSP281x_GlobalVariableDefs.c'
+'Invoking: C2000 Compiler'
+"C:/Program Files (x86)/TI/ccsv7/tools/compiler/ti-cgt-c2000_16.9.3.LTS/bin/cl2000" -v28 -ml -mt --include_path="C:/Users/Eduard/workspace_v7/lab7_mod" --include_path="C:/Program Files (x86)/TI/ccsv7/tools/compiler/ti-cgt-c2000_16.9.3.LTS/include" -g --diag_warning=225 --diag_wrap=off --display_error_number --preproc_with_compile --preproc_dependency="DSP281x_GlobalVariableDefs.d"  "../DSP281x_GlobalVariableDefs.c"
+
+>> Compilation failure
+subdir_rules.mk:23: recipe for target 'DSP281x_GlobalVariableDefs.obj' failed
+"../DSP281x_GlobalVariableDefs.c", line 15: fatal error #1965: cannot open source file "DSP281x_Device.h"
+1 catastrophic error detected in the compilation of "../DSP281x_GlobalVariableDefs.c".
+Compilation terminated.
+gmake: *** [DSP281x_GlobalVariableDefs.obj] Error 1
+'Building file: ../DSP281x_PieCtrl.c'
+'Invoking: C2000 Compiler'
+"C:/Program Files (x86)/TI/ccsv7/tools/compiler/ti-cgt-c2000_16.9.3.LTS/bin/cl2000" -v28 -ml -mt --include_path="C:/Users/Eduard/workspace_v7/lab7_mod" --include_path="C:/Program Files (x86)/TI/ccsv7/tools/compiler/ti-cgt-c2000_16.9.3.LTS/include" -g --diag_warning=225 --diag_wrap=off --display_error_number --preproc_with_compile --preproc_dependency="DSP281x_PieCtrl.d"  "../DSP281x_PieCtrl.c"
+
+>> Compilation failure
+subdir_rules.mk:30: recipe for target 'DSP281x_PieCtrl.obj' failed
+"../DSP281x_PieCtrl.c", line 17: fatal error #1965: cannot open source file "DSP281x_Device.h"
+1 catastrophic error detected in the compilation of "../DSP281x_PieCtrl.c".
+Compilation terminated.
+gmake: *** [DSP281x_PieCtrl.obj] Error 1
+'Building file: ../DSP281x_PieVect.c'
+'Invoking: C2000 Compiler'
+"C:/Program Files (x86)/TI/ccsv7/tools/compiler/ti-cgt-c2000_16.9.3.LTS/bin/cl2000" -v28 -ml -mt --include_path="C:/Users/Eduard/workspace_v7/lab7_mod" --include_path="C:/Program Files (x86)/TI/ccsv7/tools/compiler/ti-cgt-c2000_16.9.3.LTS/include" -g --diag_warning=225 --diag_wrap=off --display_error_number --preproc_with_compile --preproc_dependency="DSP281x_PieVect.d"  "../DSP281x_PieVect.c"
+
+>> Compilation failure
+subdir_rules.mk:37: recipe for target 'DSP281x_PieVect.obj' failed
+"../DSP281x_PieVect.c", line 15: fatal error #1965: cannot open source file "DSP281x_Device.h"
+1 catastrophic error detected in the compilation of "../DSP281x_PieVect.c".
+Compilation terminated.
+gmake: *** [DSP281x_PieVect.obj] Error 1
+'Building file: ../comprehensive.c'
+'Invoking: C2000 Compiler'
+"C:/Program Files (x86)/TI/ccsv7/tools/compiler/ti-cgt-c2000_16.9.3.LTS/bin/cl2000" -v28 -ml -mt --include_path="C:/Users/Eduard/workspace_v7/lab7_mod" --include_path="C:/Program Files (x86)/TI/ccsv7/tools/compiler/ti-cgt-c2000_16.9.3.LTS/include" -g --diag_warning=225 --diag_wrap=off --display_error_number --preproc_with_compile --preproc_dependency="comprehensive.d"  "../comprehensive.c"
+
+>> Compilation failure
+subdir_rules.mk:44: recipe for target 'comprehensive.obj' failed
+"../comprehensive.c", line 4: fatal error #1965: cannot open source file "DSP2 81x_Device.h"
+1 catastrophic error detected in the compilation of "../comprehensive.c".
+Compilation terminated.
+gmake: *** [comprehensive.obj] Error 1
+gmake: Target 'all' not remade because of errors.
+
+**** Build Finished ****

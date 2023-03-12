@@ -1,0 +1,211 @@
+//每个PWM周期都修改比较值的方式
+//PWM周期为20ms，正弦波周期为2s，每周期100个PWM波形
+//第n周期占空比为 y = [sin(0.02 * n * pi) + 1]/2
+//PWM周期计算为11718，由此可算比较值
+
+#include "PF.h"
+
+void Init_Sys(void);	/*初始化系统*/	
+void Init_IOF(void);	/*初始化IO*/	
+void Init_timer0(void);	/*初始化CPUTIMER*/	
+void Init_CPUint(void);	/*初始化CPU_int*/	
+void Init_PIEint(void);	/*初始化CPU_int*/	
+void Init_EV(void);		/*初始化EV*/	
+
+//interrupt void CPU_timer0_isr(void);
+interrupt void eva_T1PINT_isr(void);
+interrupt void eva_CMP1INT_isr(void);
+interrupt void eva_CMP2INT_isr(void);
+interrupt void eva_CMP3INT_isr(void);
+
+int prdnum;
+int led1_cmp;
+int led2_cmp;
+int led3_cmp;
+int led_tab[100]={
+587,585,583,580,576,571,565,558,549,540,
+530,518,506,493,479,465,449,434,417,400,
+383,365,347,329,311,293,274,256,238,220,
+202,185,168,151,136,120,106,92 ,79 ,67 ,
+55 ,45 ,36 ,27 ,20 ,14 ,9  ,5  ,2  ,2  ,
+2  ,2  ,2  ,5  ,9  ,14 ,20 ,27 ,36 ,45 ,
+55 ,67 ,79 ,92 ,106,120,136,151,168,185,
+202,220,238,256,274,292,311,329,347,365,
+383,400,417,434,449,465,479,493,506,518,
+530,540,549,558,565,571,576,580,583,585
+	};
+
+void main(void)
+{ int i;
+  DINT;
+  EALLOW;
+  Init_Sys();	/*初始化系统*/	
+  for(i=0;i<10000;i++){}
+  Init_IOF();		/*初始化IO*/	
+//  Init_timer0();	/*初始化CPUTIMER*/	
+  Init_CPUint();	/*初始化CPU_int*/	
+  Init_PIEint();	/*初始化CPU_int*/	
+  Init_EV();		/*初始化EV*/	
+  EDIS;
+  EINT;
+  prdnum=0;
+  led1_cmp=0;
+  led2_cmp=17;
+  led3_cmp=33;
+  for(;;)
+  {asm(" IDLE");
+   asm(" IDLE");
+  }
+}   
+void Init_Sys(void)	/*初始化系统*/	
+{
+  PLLCR=0xA;
+  PCLKCR=0xffff;
+  HISPCP=0x1;	//default
+  LOSPCP=0x2;	//default
+  WDCR=0x68;	//disable w d
+  LPMCR0=0x0;	//Low power --Idle
+
+}
+void Init_IOF(void)		/*初始化IO*/	
+{int i;
+  GPFMUX=0x00ff;	//f8~f13
+  GPFDIR=0x3f00;
+  GPFDAT=0x0700;
+
+  GPEMUX=0x0;	//f8~f13
+  GPEDIR=0xFF;
+  GPEDAT=0xFFFF;
+
+  GPBMUX,0x0;	//f8~f13
+  GPBDIR,0xFF00;
+  GPBDAT,0xff00;
+  GPEDAT,0xFFFA;
+  for(i=0;i<100;i++){}
+  GPEDAT=0xFFFB;
+  for(i=0;i<100;i++){}
+  GPEDAT=0xFFFF;
+  
+  GPAMUX=0x1;	//PWM1 active
+  GPADIR=0x3F;	//GPIOA_3~5
+  GPADAT=0x00;
+}
+void Init_timer0(void)	/*初始化CPUTIMER*/	
+{
+  TIMER0TPR=150;	//f8~f13
+  TIMER0TPRH=0;
+  TIMER0PRD=(long)(1000*25);
+  TIMER0TCR=0xf000;
+}
+void Init_CPUint(void)	/*初始化CPU_int*/	
+{
+  IFR=0x0;
+  IER=0X3;
+}
+void Init_PIEint(void)	/*初始化CPU_int*/	
+{
+  PIEIFR1=0;
+  PIEIER2=0xf;
+  PIEIFR2=0;
+  PIEACK =0;
+  PIECTRL=1;
+  
+  CMP1INTVector=&eva_CMP1INT_isr;
+  CMP2INTVector=&eva_CMP2INT_isr;
+  CMP3INTVector=&eva_CMP3INT_isr;
+  T1PINTVector = &eva_T1PINT_isr;
+}
+void Init_EV(void)		/*初始化EV*/	
+{
+  EXTCONA=1;
+  GPTCONA=0x0010;
+  T1CON  =0x17ca;
+  T1PR   =586;
+  COMCONA=0x82e0;
+  ACTRA  =0x1;
+  DBTCONA= 00;
+  CMPR1=led1_cmp;
+  CMPR2=led2_cmp;
+  CMPR3=led3_cmp;
+  EVAIMRA=0x8e;
+  EVAIFRA=0;
+}
+
+
+interrupt void CPU_timer0_isr()
+{
+ PIEACK=1;
+}
+interrupt void eva_T1PINT_isr()
+{int i;
+  GPFDAT= 0x0700;		//0000 0111 0000 0000
+  GPADAT=0x00;			//0000 0000
+
+  GPBDAT=0xf800;
+  GPEDAT=0xFFFA;
+  for(i=0;i<100;i++){}
+  GPEDAT=0xFFFF;
+  
+  prdnum++;
+  if(prdnum>=20)
+  {prdnum=0;
+   led1_cmp++;
+   if(led1_cmp>=100) led1_cmp=0;
+   led2_cmp++;
+   if(led2_cmp>=100) led2_cmp=0;
+   led3_cmp++;
+   if(led3_cmp>=100) led3_cmp=0;
+   CMPR1=led_tab[led1_cmp];
+   CMPR2=led_tab[led2_cmp];
+   CMPR3=led_tab[led3_cmp];
+  }
+
+ EVAIFRA=0x80;
+ PIEACK= 2;
+}
+interrupt void eva_CMP1INT_isr()
+{int i;
+  if(led_tab[led1_cmp]!=0)
+  	{	
+	 Set16(GPFTOGGLE,0x0900);	//0000 1001 0000 0000
+	 Set16(GPATOGGLE,0x04);	//0000 0000 0000 0100
+
+	 Set16(GPBTOGGLE,0x0900);
+	 Set16(GPEDAT,0xFFFA);
+	 for(i=0;i<100;i++){}
+	 Set16(GPEDAT,0xFFFF);
+	}
+ Set16(EVAIFRA, 2);
+ Set16(PIEACK,  2);
+}
+interrupt void eva_CMP2INT_isr()
+{int i;
+  if(led_tab[led2_cmp]!=0)
+  	{	
+	 Set16(GPFTOGGLE,0x1200);	//0001 0010 0000 0000
+
+	 Set16(GPBTOGGLE,0x1200);
+	 Set16(GPEDAT,0xFFFA);
+	 for(i=0;i<100;i++){}
+	 Set16(GPEDAT,0xFFFF);
+	}
+ Set16(EVAIFRA, 4);
+ Set16(PIEACK,  2);
+}
+interrupt void eva_CMP3INT_isr()
+{int i;
+  if(led_tab[led3_cmp]!=0)
+  	{	
+	 Set16(GPFTOGGLE,0x2400);	//0010 0100 0000 0000
+	 Set16(GPATOGGLE,0x10);	//0000 0000 0001 0000
+
+	 Set16(GPBTOGGLE,0x2400);
+	 Set16(GPEDAT,0xFFFA);
+	 for(i=0;i<100;i++){}
+	 Set16(GPEDAT,0xFFFF);
+	}
+ Set16(EVAIFRA, 8);
+ Set16(PIEACK,  2);
+}
+
+

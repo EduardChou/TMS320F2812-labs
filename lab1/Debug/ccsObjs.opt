@@ -1,0 +1,1 @@
+"./led_start.obj" "../EzDSP_RAM_lnk.cmd" -llibc.a 

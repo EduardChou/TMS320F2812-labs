@@ -1,0 +1,7 @@
+-z -c -m"./Debug/ADC.map" -o"./Debug/ADC.out" -w -x -i"C:/CCStudio_v3.1/C2000/xdais/lib" -i"C:/CCStudio_v3.1/C2000/rtdx/lib" -i"C:/CCStudio_v3.1/c2000/bios/lib" -i"C:/CCStudio_v3.1/C2000/cgtools/lib"
+"F:\dsplab281x\cmd\DSP281x_Headers_nonBIOS.cmd"
+"F:\dsplab281x\cmd\EzDSP_RAM_lnk.cmd"
+"F:\dsplab281x\main\ADC\Debug\ADC.obj"
+"F:\dsplab281x\main\ADC\Debug\DSP281x_GlobalVariableDefs.obj"
+"F:\dsplab281x\main\ADC\Debug\DSP281x_SysCtrl.obj"
+"F:\dsplab281x\lib\rts2800_ml.lib"

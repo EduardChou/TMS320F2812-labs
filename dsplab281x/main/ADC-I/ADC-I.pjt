@@ -1,0 +1,50 @@
+; Code Composer Project File, Version 2.0 (do not modify or remove this line)
+
+[Project Settings]
+ProjectDir="F:\jacky281x\main\ADC-I\"
+ProjectType=Executable
+CPUFamily=TMS320C28XX
+Tool="Compiler"
+Tool="CustomBuilder"
+Tool="DspBiosBuilder"
+Tool="Linker"
+Config="Debug"
+Config="Release"
+
+[Source Files]
+Source="..\..\initialization\DSP281x_Adc_1ch.c"
+Source="..\..\initialization\DSP281x_DefaultIsr.c"
+Source="..\..\initialization\DSP281x_GlobalVariableDefs.c"
+Source="..\..\initialization\DSP281x_PieCtrl.c"
+Source="..\..\initialization\DSP281x_PieVect.c"
+Source="..\..\initialization\DSP281x_SysCtrl.c"
+Source="..\..\initialization\DSP281x_usDelay.asm"
+Source="..\..\lib\rts2800_ml.lib"
+Source="ADC-I.C"
+Source="..\..\cmd\DSP281x_Headers_nonBIOS.cmd"
+Source="..\..\cmd\EzDSP_RAM_lnk.cmd"
+
+["Compiler" Settings: "Debug"]
+Options=-g -q -as -fr"F:\jacky281x\main\ADC-I\Debug" -i"..\..\headers" -i"..\headers" -d"_DEBUG" -d"LARGE_MODEL" -ml -v28
+
+["Compiler" Settings: "Release"]
+Options=-o3 -fr"$(Proj_dir)\Release" -d"LARGE_MODEL" -ml -v28
+
+["Linker" Settings: "Debug"]
+Options=-c -m".\Debug\ADC-I.map" -o".\Debug\ADC-I.out" -w -x
+
+["Linker" Settings: "Release"]
+Options=-c -m".\Release\ADC-I.map" -o".\Release\ADC-I.out" -w -x
+
+["..\..\cmd\DSP281x_Headers_nonBIOS.cmd" Settings: "Debug"]
+LinkOrder=1
+
+["..\..\cmd\DSP281x_Headers_nonBIOS.cmd" Settings: "Release"]
+LinkOrder=1
+
+["..\..\cmd\EzDSP_RAM_lnk.cmd" Settings: "Debug"]
+LinkOrder=2
+
+["..\..\cmd\EzDSP_RAM_lnk.cmd" Settings: "Release"]
+LinkOrder=1
+

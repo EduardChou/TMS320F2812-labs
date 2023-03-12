@@ -1,0 +1,48 @@
+; Code Composer Project File, Version 2.0 (do not modify or remove this line)
+
+[Project Settings]
+ProjectDir="F:\jacky281x\main\ADC_Flash\"
+ProjectType=Executable
+CPUFamily=TMS320C28XX
+Tool="Compiler"
+Tool="CustomBuilder"
+Tool="DspBiosBuilder"
+Tool="Linker"
+Config="Debug"
+Config="Release"
+
+[Source Files]
+Source="..\..\initialization\DSP281x_CodeStartBranch.asm"
+Source="..\..\initialization\DSP281x_CSMPasswords.asm"
+Source="..\..\initialization\DSP281x_GlobalVariableDefs.c"
+Source="..\..\initialization\DSP281x_MemCopy.c"
+Source="..\..\initialization\DSP281x_SysCtrl.c"
+Source="..\..\lib\rts2800_ml.lib"
+Source="ADC_Flash.c"
+Source="..\..\cmd\DSP281x_Headers_nonBIOS.cmd"
+Source="..\..\cmd\F2812.cmd"
+
+["Compiler" Settings: "Debug"]
+Options=-g -q -as -fr"F:\jacky281x\main\ADC_Flash\Debug" -i"..\..\headers" -i"..\headers" -d"_DEBUG" -d"LARGE_MODEL" -ml -v28
+
+["Compiler" Settings: "Release"]
+Options=-o3 -fr"$(Proj_dir)\Release" -d"LARGE_MODEL" -ml -v28
+
+["Linker" Settings: "Debug"]
+Options=-c -m".\Debug\ADC_Flash.map" -o".\Debug\ADC_Flash.out" -stack0x400 -w -x
+
+["Linker" Settings: "Release"]
+Options=-c -m".\Release\ADC_Flash.map" -o".\Release\ADC_Flash.out" -w -x
+
+["..\..\cmd\DSP281x_Headers_nonBIOS.cmd" Settings: "Debug"]
+LinkOrder=1
+
+["..\..\cmd\DSP281x_Headers_nonBIOS.cmd" Settings: "Release"]
+LinkOrder=1
+
+["..\..\cmd\F2812.cmd" Settings: "Debug"]
+LinkOrder=1
+
+["..\..\cmd\F2812.cmd" Settings: "Release"]
+LinkOrder=1
+

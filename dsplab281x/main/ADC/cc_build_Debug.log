@@ -1,0 +1,12 @@
+------------------------------  ADC.pjt - Debug  ------------------------------
+[DSP281x_GlobalVariableDefs.c] "C:\CCStudio_v3.1\C2000\cgtools\bin\cl2000" -g -q -fr"F:/dsplab281x/main/ADC/Debug" -i"../../headers" -i"../headers" -d"_DEBUG" -d"LARGE_MODEL" -ml -v28 -@"../main/ADC/Debug.lkf" "DSP281x_GlobalVariableDefs.c"
+
+[DSP281x_SysCtrl.c] "C:\CCStudio_v3.1\C2000\cgtools\bin\cl2000" -g -q -fr"F:/dsplab281x/main/ADC/Debug" -i"../../headers" -i"../headers" -d"_DEBUG" -d"LARGE_MODEL" -ml -v28 -@"../main/ADC/Debug.lkf" "DSP281x_SysCtrl.c"
+
+[ADC.C] "C:\CCStudio_v3.1\C2000\cgtools\bin\cl2000" -g -q -fr"F:/dsplab281x/main/ADC/Debug" -i"../../headers" -i"../headers" -d"_DEBUG" -d"LARGE_MODEL" -ml -v28 -@"Debug.lkf" "ADC.C"
+
+[Linking...] "C:\CCStudio_v3.1\C2000\cgtools\bin\cl2000" -@"Debug.lkf"
+<Linking>
+
+Build Complete,
+  0 Errors, 0 Warnings, 0 Remarks.

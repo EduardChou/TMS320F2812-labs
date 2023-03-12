@@ -1,0 +1,36 @@
+################################################################################
+# Automatically-generated file. Do not edit!
+################################################################################
+
+SHELL = cmd.exe
+
+# Add inputs and outputs from these tool invocations to the build variables 
+CMD_SRCS += \
+../DSP281x_Headers_nonBIOS.cmd \
+../F2812_EzDSP_RAM_lnk.cmd 
+
+C_SRCS += \
+../CPUclocker.c \
+../DSP281x_GlobalVariableDefs.c 
+
+C_DEPS += \
+./CPUclocker.d \
+./DSP281x_GlobalVariableDefs.d 
+
+OBJS += \
+./CPUclocker.obj \
+./DSP281x_GlobalVariableDefs.obj 
+
+OBJS__QUOTED += \
+"CPUclocker.obj" \
+"DSP281x_GlobalVariableDefs.obj" 
+
+C_DEPS__QUOTED += \
+"CPUclocker.d" \
+"DSP281x_GlobalVariableDefs.d" 
+
+C_SRCS__QUOTED += \
+"../CPUclocker.c" \
+"../DSP281x_GlobalVariableDefs.c" 
+
+

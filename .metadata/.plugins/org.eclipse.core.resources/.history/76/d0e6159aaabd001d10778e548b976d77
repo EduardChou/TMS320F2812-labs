@@ -1,0 +1,396 @@
+//每个PWM周期都修改比较值的方式
+//PWM周期为1ms，正弦波周期2s，分为100份，每份中的20ms的比较值一样，亮度一样
+//第n周期占空比为 y = [sin(0.02 * n * pi) + 1]/2
+//PWM周期计算为586，由此可算比较值，GPTimer记满586次为1ms
+
+#include "DSP281x_Device.h"
+void Init_Sys(void);    /*初始化系统*/
+void Init_IOF(void);    /*初始化IO*/
+void Init_timer0(void); /*初始化CPUTIMER*/
+void Init_CPUint(void); /*初始化CPU_int*/
+void Init_PIEint(void); /*初始化CPU_int*/
+void Init_EV(void);     /*初始化EV*/
+
+//interrupt void CPU_timer0_isr(void);中断子程序
+interrupt void T1PINT_isr(void);//周期中断
+interrupt void CMP1INT_isr(void);
+interrupt void CMP2INT_isr(void);
+interrupt void CMP3INT_isr(void);
+interrupt void T1CINT_isr(void);
+//第二组
+interrupt void T3PINT_isr(void);//周期中断
+interrupt void CMP4INT_isr(void);
+interrupt void CMP5INT_isr(void);
+interrupt void CMP6INT_isr(void);
+interrupt void T3CINT_isr(void);
+
+int prdnum;//判断20ms有没有到，20ms到了就改变比较值
+int led1_cmp;//
+int led2_cmp;
+int led3_cmp;//CMPR1=led_tab[led1_cmp];
+int led4_cmp;
+int led11_cmp;//
+int led22_cmp;
+int led33_cmp;//CMPR1=led_tab[led1_cmp];
+int led44_cmp;
+int led_tab[100]={//比较值
+585,585,583,580,576,571,565,558,549,540,
+530,518,506,493,479,465,449,434,417,400,
+383,365,347,329,311,293,274,256,238,220,
+202,185,168,151,136,120,106,92 ,81 ,67 ,
+54 ,45 ,36 ,27 ,20 ,14 ,9  ,9  , 9 ,9 ,
+9  ,9  ,9  ,9  ,9  ,14 ,20 ,27 ,36 ,45 ,
+55 ,67 ,79 ,92 ,106,120,136,151,168,185,
+202,220,238,256,274,292,311,329,347,365,
+383,400,417,434,449,465,479,493,506,518,
+530,540,549,558,565,571,576,580,583,585
+    };
+
+void main(void)
+{ int i;
+  DINT;
+  EALLOW;
+  Init_Sys();   /*初始化系统*/
+  for(i=0;i<10000;i++){}
+  Init_IOF();       /*初始化IO*/
+//  Init_timer0();  /*初始化CPUTIMER*/
+  Init_CPUint();    /*初始化CPU_int*/
+  Init_PIEint();    /*初始化CPU_int*/
+  Init_EV();        /*初始化EV*/
+  EDIS;
+  EINT;
+  prdnum=0;
+  led1_cmp=0;
+  led2_cmp=27;
+  led3_cmp=54;
+  led4_cmp=81;
+
+  //led11_cmp=0;
+  //led22_cmp=27;
+  //led33_cmp=54;
+  //led44_cmp=81;
+  for(;;)
+  {asm(" IDLE");
+   asm(" IDLE");
+  }
+}   
+void Init_Sys(void) /*初始化系统*/
+{
+  SysCtrlRegs.PLLCR.bit.DIV=0xA;//初始化系统时钟150为MHz
+  SysCtrlRegs.PCLKCR.all=0xffff;
+  SysCtrlRegs.HISPCP.all=0x0001;    //default二分频75MHz
+  SysCtrlRegs.LOSPCP.all=0x0002;    //default四分频
+  SysCtrlRegs.WDCR=0x0068;  //disable wd
+  SysCtrlRegs.LPMCR0.bit.LPM=0x00;  //Low power --Idle
+
+}
+void Init_IOF(void)     /*初始化IO*/
+{int i;
+  GpioMuxRegs.GPFMUX.all=0x00ff;    //f8~f13,置0为GPIO口
+  GpioMuxRegs.GPFDIR.all=0x3f00;//0011 1111 00000000置1位输出
+  GpioDataRegs.GPFDAT.all=0x0700;//0000 0111 ,左三个灯亮，第4 5 6绿灯暗
+
+  GpioMuxRegs.GPEMUX.all=0x0;   //低三位 分组选择
+  GpioMuxRegs.GPEDIR.all=0xFF;
+  GpioDataRegs.GPEDAT.all=0xFFFF;
+
+  GpioMuxRegs.GPBMUX.all=0x0;   //f8~f15高八位，红灯
+  GpioMuxRegs.GPBDIR.all=0xFF00;
+  GpioDataRegs.GPBDAT.all=0xff00;
+  GpioDataRegs.GPEDAT.all=0xFFFA;//1010（2）
+  for(i=0;i<100;i++){}
+  GpioDataRegs.GPEDAT.all=0xFFFB;//1011(3),第一组输出   010->011给高电平后第一组输出
+  for(i=0;i<100;i++){}
+  GpioDataRegs.GPEDAT.all=0xFFFF;//1111，第二组输出，初始化后红灯全黑   011->111第二组输出
+}
+
+void Init_timer0(void)  /*初始化CPUTIMER*/
+{
+    CpuTimer0Regs.TPR.all=150;  //f8~f13
+    CpuTimer0Regs.TPRH.all=0;
+    CpuTimer0Regs.PRD.all=(long)(1000*25);//0.025s
+    CpuTimer0Regs.TCR.all=0xf000;
+}
+void Init_CPUint(void)  /*初始化CPU_int*/
+{
+  IFR=0x0;
+  IER=0xA;
+}
+void Init_PIEint(void)  /*初始化CPU_int*/
+{   PieCtrlRegs.PIEIER1.all=0x40;//第一组中断不用
+    PieCtrlRegs.PIEIFR1.all=0x0;//第一组中断不用
+    PieCtrlRegs.PIEIER2.all=0x1f;//INT2.1(CMP1INT) INT2.2(CMP2INT)  INT2.3(CMP2INT)  INT2.4(T1PINT)
+    PieCtrlRegs.PIEIFR2.all=0;
+  // PieCtrlRegs.PIEIER4.all=0x1f;//第四组中断开INT2.1(CMP1INT) INT2.2(CMP2INT)  INT2.3(CMP2INT)  INT2.4(T1PINT)
+   // PieCtrlRegs.PIEIFR4.all=0;
+    PieCtrlRegs.PIEACK.all =0x000f;//第二组和第四组中断使能
+    PieCtrlRegs.PIECRTL.bit.ENPIE=0x1;
+//第二组中断向量表
+    PieVectTable.CMP1INT=&CMP1INT_isr;
+    PieVectTable.CMP2INT=&CMP2INT_isr;
+    PieVectTable.CMP3INT=&CMP3INT_isr;
+    PieVectTable.T1PINT= &T1PINT_isr;
+    PieVectTable.T1CINT= &T1CINT_isr;
+  //第四组
+    PieVectTable.CMP4INT=&CMP4INT_isr;
+    PieVectTable.CMP5INT=&CMP5INT_isr;
+    PieVectTable.CMP6INT=&CMP6INT_isr;
+    PieVectTable.T3PINT= &T3PINT_isr;
+    PieVectTable.T3CINT= &T3CINT_isr;
+}
+void Init_EV(void)      /*初始化EV*/
+{
+  EvaRegs.EXTCONA.bit.INDCOE=1;//决定T1、T2是否并联
+  EvaRegs.GPTCONA.all=0x0010;//456位决定T1T2是否输出  0001 0000  1-0位如果是10则T1为active high
+  EvaRegs.T1CON.all  =0x17ca;//决定运行方式，计时启动 0001 0111  1100 1010 12-11位10位连续增，10-8为111 128分配
+  EvaRegs.T1PR   =586;//周期值
+  EvaRegs.COMCONA.all=0x82e0;
+  EvaRegs.ACTRA.all  =0x1;
+  EvaRegs.DBTCONA.all= 00;
+  EvaRegs.CMPR1=led1_cmp;//四个比较值 2-587
+  EvaRegs.CMPR2=led2_cmp;
+  EvaRegs.CMPR3=led3_cmp;
+  EvaRegs.T1CMPR=led4_cmp;
+  EvaRegs.EVAIMRA.all=0x018e;//中断屏蔽1000 1110 1 2 3 7位为所用中断，置1使能
+  EvaRegs.EVAIFRA.all=0;//EVA中断标志位
+
+   /* EvbRegs.EXTCONB.bit.INDCOE=1;//决定T1、T2是否并联
+    EvbRegs.GPTCONB.all=0x0010;//456位决定T1T2是否输出  0001 0000  1-0位如果是10则T1为active high
+    EvbRegs.T3CON.all  =0x17ca;//决定运行方式，计时启动 0001 0111  1100 1010 12-11位10位连续增，10-8为111 128分配
+    EvbRegs.T3PR   =586;//周期值
+    EvbRegs.COMCONB.all=0x82e0;
+    EvbRegs.ACTRB.all  =0x1;
+    EvbRegs.DBTCONB.all= 00;
+    EvbRegs.CMPR4=led11_cmp;//四个比较中断的比较值 2-587
+    EvbRegs.CMPR5=led22_cmp;
+    EvbRegs.CMPR6=led33_cmp;
+    EvbRegs.T3CMPR=led44_cmp;
+    EvbRegs.EVBIMRA.all=0x018e;//中断屏蔽1000 1110 1 2 3 7位为所用中断，置1使能
+    EvbRegs.EVBIFRA.all=0;//EVA中断标志位
+    */
+}
+
+
+interrupt void CPU_timer0_isr()
+{
+    PieCtrlRegs.PIEACK.all=1;
+}
+int redled=0xFF00;//定义一个红灯寄存器
+interrupt void T1PINT_isr()//周期中断
+{int i;
+  GpioDataRegs.GPFDAT.all= 0x0700;      //0000 0111 0000 0000绿灯，左三灯暗，右三灯亮
+  //GPADAT=0x00;            //0000 0000
+  redled=0xf0f0;//低8位是第一组，高8位是第二组
+ GpioDataRegs.GPBDAT.all=redled*256;//第一组前四盏红灯亮，5,6，7,8灯暗
+ GpioDataRegs.GPEDAT.all=0xFFFA;
+ for(i=0;i<100;i++){}
+ GpioDataRegs.GPEDAT.all=0xFFFF;
+ GpioDataRegs.GPBDAT.all=redled;//第二组前四盏红灯亮，5,6，7,8灯暗
+ GpioDataRegs.GPEDAT.all=0xFFFB;
+ for(i=0;i<100;i++){}
+ GpioDataRegs.GPEDAT.all=0xFFFF;
+
+  prdnum++;
+  if(prdnum>=20)//20ms即20个pwm周期到了改变比较值
+  {prdnum=0;
+   led1_cmp++;//第一组灯的比较值在数组中的下标，共有100个比较值。
+   if(led1_cmp>=100) led1_cmp=0;
+   led2_cmp++;
+   if(led2_cmp>=100) led2_cmp=0;
+   led3_cmp++;
+   if(led3_cmp>=100) led3_cmp=0;
+   led4_cmp++;
+   if(led4_cmp>=100) led4_cmp=0;
+   EvaRegs.CMPR1=led_tab[led1_cmp];//数组的元素赋给比较值
+   EvaRegs.CMPR2=led_tab[led2_cmp];
+   EvaRegs.CMPR3=led_tab[led3_cmp];
+   EvaRegs.T1CMPR=led_tab[led4_cmp];
+  }
+
+  EvaRegs.EVAIFRA.all=0x80;
+  PieCtrlRegs.PIEACK.all= 2;
+}
+interrupt void CMP1INT_isr()//比较中断
+{int i;
+
+  if(led_tab[led1_cmp]!=0)
+    {
+      GpioDataRegs.GPFTOGGLE.all=0x0900;    //0000 1001 0000 0000在GPXTOGGLE寄存器某位写1则该引脚电平翻转，第一对绿灯电平翻转
+     //GPATOGGLE=0x04;  //0000 0000 0000 0100
+      redled=redled^0x1111;      //假如GPBDAT的高八位此时是1110 1111->1111 1110
+      //GpioDataRegs.GPBTOGGLE.all=0x2200;
+      GpioDataRegs.GPBDAT.all=redled*256;//第一对红灯翻转0001 0001
+     GpioDataRegs.GPEDAT.all=0xFFFA;
+     for(i=0;i<10;i++){}
+     GpioDataRegs.GPEDAT.all=0xFFFF;
+
+     GpioDataRegs.GPBDAT.all=redled;//第二组的第一对红灯翻转0001 0001
+     GpioDataRegs.GPEDAT.all=0xFFFB;
+     for(i=0;i<10;i++){}
+     GpioDataRegs.GPEDAT.all=0xFFFF;
+    }
+  EvaRegs.EVAIFRA.all= 2;
+  PieCtrlRegs.PIEACK.all = 2;
+}
+interrupt void CMP2INT_isr()
+{int i;
+  if(led_tab[led2_cmp]!=0)
+    {
+      GpioDataRegs.GPFTOGGLE.all=0x1200;    //00 01 0 010 0000 0000
+      redled=redled^0x2222;      //假如GPBDAT的高八位此时是1101 1111->1111 1101
+      GpioDataRegs.GPBDAT.all=redled*256;//第二对红灯翻转0001 0001
+     // GpioDataRegs.GPBTOGGLE.all=0x2200;//0010 0010
+      GpioDataRegs.GPEDAT.all=0xFFFA;
+     for(i=0;i<10;i++){}
+     GpioDataRegs.GPEDAT.all=0xFFFF;
+
+     GpioDataRegs.GPBDAT.all=redled;//第二组的第二对红灯翻转0001 0001
+    // GpioDataRegs.GPBTOGGLE.all=0x2200;//0010 0010
+     GpioDataRegs.GPEDAT.all=0xFFFB;
+     for(i=0;i<10;i++){}
+     GpioDataRegs.GPEDAT.all=0xFFFF;
+    }
+  EvaRegs.EVAIFRA.all= 4;
+  PieCtrlRegs.PIEACK.all = 2;
+}
+interrupt void CMP3INT_isr()
+{int i;
+  if(led_tab[led3_cmp]!=0)
+    {
+      GpioDataRegs.GPFTOGGLE.all=0x2400;    //00 10 0 100 0000 0000
+      //GpioDataRegs.GPATOGGLE.all=0x10;    //0000 0000 0001 0000
+      redled=redled^0x4444;      //假如GPBDAT的高八位此时是1011 1111->1111 1011
+      GpioDataRegs.GPBDAT.all=redled*256;//第一对红灯翻转0001 0001
+      //GpioDataRegs.GPBTOGGLE.all=0x4400;//将GPBTOGGLE对应位写1，将电平翻转
+      GpioDataRegs.GPEDAT.all=0xFFFA;
+     for(i=0;i<10;i++){}
+     GpioDataRegs.GPEDAT.all=0xFFFF;
+
+     GpioDataRegs.GPBDAT.all=redled;//第一对红灯翻转0001 0001
+  // GpioDataRegs.GPBTOGGLE.all=0x2200;//0010 0010
+     GpioDataRegs.GPEDAT.all=0xFFFB;
+     for(i=0;i<10;i++){}
+     GpioDataRegs.GPEDAT.all=0xFFFF;
+    }
+  EvaRegs.EVAIFRA.all= 8;
+  PieCtrlRegs.PIEACK.all = 2;
+}
+interrupt void T1CINT_isr()//比较中断
+{int i;
+  if(led_tab[led4_cmp]!=0)
+    {
+      //GpioDataRegs.GPFTOGGLE.all=0x0700;    //0000 1001 0000 0000在GPXTOGGLE寄存器某位写1则该引脚电平翻转，第一对绿灯电平翻转
+     //GPATOGGLE=0x04;  //0000 0000 0000 0100
+      redled=redled^0x8888;      //假如GPBDAT的高八位此时是0111 1111->1111 0111
+      GpioDataRegs.GPBDAT.all=redled*256;//第四对红灯翻转0001 0001
+     //GpioDataRegs.GPBTOGGLE.all=0x8800;//第四对红灯翻转1000 1000
+     GpioDataRegs.GPEDAT.all=0xFFFA;
+     for(i=0;i<10;i++){}
+     GpioDataRegs.GPEDAT.all=0xFFFF;
+
+     GpioDataRegs.GPBDAT.all=redled;//第二组的第四对红灯翻转0001 0001
+     // GpioDataRegs.GPBTOGGLE.all=0x2200;//0010 0010
+     GpioDataRegs.GPEDAT.all=0xFFFB;
+     for(i=0;i<10;i++){}
+     GpioDataRegs.GPEDAT.all=0xFFFF;
+    }
+  EvaRegs.EVAIFRA.all= 0x0100;
+  PieCtrlRegs.PIEACK.all = 2;
+}
+
+
+//第二组红灯
+interrupt void T3PINT_isr()//周期中断
+{int i;
+  GpioDataRegs.GPFDAT.all= 0x0700;      //00 00 0 111 0000 0000绿灯，左三灯亮，右三灯暗
+  //GPADAT=0x00;            //0000 0000
+  redled=0xf0f0;
+  GpioDataRegs.GPBDAT.all=redled;//第一组前四盏红灯亮，5,6,7,8灯暗
+//  //GpioDataRegs.GPBDAT.all=0xf000;//第一组前四盏红灯亮，5,6,7,8灯暗
+  GpioDataRegs.GPEDAT.all=0xFFFB;
+  for(i=0;i<100;i++){}
+  GpioDataRegs.GPEDAT.all=0xFFFF;
+
+  prdnum++;
+  if(prdnum>=20)//20ms即20个pwm周期到了改变比较值
+  {prdnum=0;
+   led11_cmp++;//第一组灯的比较值在数组中的下标，共有100个比较值。
+   if(led11_cmp>=100) led11_cmp=0;
+   led22_cmp++;
+   if(led22_cmp>=100) led22_cmp=0;
+   led33_cmp++;
+   if(led33_cmp>=100) led33_cmp=0;
+   led44_cmp++;
+   if(led44_cmp>=100) led44_cmp=0;
+   EvbRegs.CMPR4=led_tab[led11_cmp];//数组的元素赋给比较值
+   EvbRegs.CMPR5=led_tab[led22_cmp];
+   EvbRegs.CMPR6=led_tab[led33_cmp];
+   EvbRegs.T3CMPR=led_tab[led44_cmp];
+  }
+
+  EvbRegs.EVBIFRA.all=0x80;
+  PieCtrlRegs.PIEACK.all= 0x8;
+}
+interrupt void CMP4INT_isr()//比较中断
+{int i;
+  if(led_tab[led11_cmp]!=0)
+    {
+      GpioDataRegs.GPFTOGGLE.all=0x0900;    //0000 1001 0000 0000在GPXTOGGLE寄存器某位写1则该引脚电平翻转，第一对绿灯电平翻转
+     //GPATOGGLE=0x04;  //0000 0000 0000 0100
+      redled=redled^0x1100;      //假如GPBDAT的高八位此时是1110 1111->1111 1110
+      GpioDataRegs.GPBDAT.all=redled;//第一对红灯翻转0001 0001
+      //GpioDataRegs.GPBTOGGLE.all=0x1100;//第一对红灯翻转0001 0001
+     GpioDataRegs.GPEDAT.all=0xFFFB;
+     for(i=0;i<10;i++){}
+     GpioDataRegs.GPEDAT.all=0xFFFF;
+    }
+  EvbRegs.EVBIFRA.all= 2;
+  PieCtrlRegs.PIEACK.all = 0x8;
+}
+interrupt void CMP5INT_isr()
+{int i;
+  if(led_tab[led22_cmp]!=0)
+    {
+      GpioDataRegs.GPFTOGGLE.all=0x1200;    //0001 0010 0000 0000
+      redled=redled^0x2200;      //假如GPBDAT的高八位此时是1101 1111->1111 1101
+      GpioDataRegs.GPBDAT.all=redled;//第一对红灯翻转0001 0001
+      //GpioDataRegs.GPBTOGGLE.all=0x2200;//0010 0010
+      GpioDataRegs.GPEDAT.all=0xFFFB;
+     for(i=0;i<10;i++){}
+     GpioDataRegs.GPEDAT.all=0xFFFF;
+    }
+  EvbRegs.EVBIFRA.all= 4;
+  PieCtrlRegs.PIEACK.all = 0x8;
+}
+interrupt void CMP6INT_isr()
+{int i;
+  if(led_tab[led33_cmp]!=0)
+    {
+      GpioDataRegs.GPFTOGGLE.all=0x2400;    //0100 0100 0000 0000
+     // GpioDataRegs.GPATOGGLE.all=0x10;    //0000 0000 0001 0000
+      redled=redled^0x4400;      //假如GPBDAT的高八位此时是1011 1111->1111 1011
+      GpioDataRegs.GPBDAT.all=redled;//第一对红灯翻转0001 0001
+      //GpioDataRegs.GPBTOGGLE.all=0x4400;//将GPBTOGGLE对应位写1，将电平翻转
+      GpioDataRegs.GPEDAT.all=0xFFFB;
+     for(i=0;i<10;i++){}
+     GpioDataRegs.GPEDAT.all=0xFFFF;
+    }
+  EvbRegs.EVBIFRA.all= 8;
+  PieCtrlRegs.PIEACK.all = 0x8;
+}
+interrupt void T3CINT_isr()//比较中断
+{int i;
+  if(led_tab[led44_cmp]!=0)
+    {
+      //GpioDataRegs.GPFTOGGLE.all=0x0700;    //0000 1001 0000 0000在GPXTOGGLE寄存器某位写1则该引脚电平翻转，第一对绿灯电平翻转
+     //GPATOGGLE=0x04;  //0000 0000 0000 0100
+      redled=redled^0x8800;      //假如GPBDAT的高八位此时是0111 1111->1111 0111
+      GpioDataRegs.GPBDAT.all=redled;//第一对红灯翻转0001 0001
+     //GpioDataRegs.GPBTOGGLE.all=0x8800;//第四对红灯翻转1000 1000
+     GpioDataRegs.GPEDAT.all=0xFFFB;
+     for(i=0;i<10;i++){}
+     GpioDataRegs.GPEDAT.all=0xFFFF;
+    }
+  EvbRegs.EVBIFRA.all= 0x0100;
+  PieCtrlRegs.PIEACK.all = 0x8;
+}

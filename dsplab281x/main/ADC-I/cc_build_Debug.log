@@ -1,0 +1,22 @@
+-----------------------------  ADC-I.pjt - Debug  -----------------------------
+[DSP281x_Adc_1ch.c] "C:\CCStudio_v3.1\C2000\cgtools\bin\cl2000" -g -q -as -fr"F:/jacky281x/main/ADC-I/Debug" -i"../../headers" -i"../headers" -d"_DEBUG" -d"LARGE_MODEL" -ml -v28 -@"../main/ADC-I/Debug.lkf" "DSP281x_Adc_1ch.c"
+
+[DSP281x_DefaultIsr.c] "C:\CCStudio_v3.1\C2000\cgtools\bin\cl2000" -g -q -as -fr"F:/jacky281x/main/ADC-I/Debug" -i"../../headers" -i"../headers" -d"_DEBUG" -d"LARGE_MODEL" -ml -v28 -@"../main/ADC-I/Debug.lkf" "DSP281x_DefaultIsr.c"
+
+[DSP281x_GlobalVariableDefs.c] "C:\CCStudio_v3.1\C2000\cgtools\bin\cl2000" -g -q -as -fr"F:/jacky281x/main/ADC-I/Debug" -i"../../headers" -i"../headers" -d"_DEBUG" -d"LARGE_MODEL" -ml -v28 -@"../main/ADC-I/Debug.lkf" "DSP281x_GlobalVariableDefs.c"
+
+[DSP281x_PieCtrl.c] "C:\CCStudio_v3.1\C2000\cgtools\bin\cl2000" -g -q -as -fr"F:/jacky281x/main/ADC-I/Debug" -i"../../headers" -i"../headers" -d"_DEBUG" -d"LARGE_MODEL" -ml -v28 -@"../main/ADC-I/Debug.lkf" "DSP281x_PieCtrl.c"
+
+[DSP281x_PieVect.c] "C:\CCStudio_v3.1\C2000\cgtools\bin\cl2000" -g -q -as -fr"F:/jacky281x/main/ADC-I/Debug" -i"../../headers" -i"../headers" -d"_DEBUG" -d"LARGE_MODEL" -ml -v28 -@"../main/ADC-I/Debug.lkf" "DSP281x_PieVect.c"
+
+[DSP281x_SysCtrl.c] "C:\CCStudio_v3.1\C2000\cgtools\bin\cl2000" -g -q -as -fr"F:/jacky281x/main/ADC-I/Debug" -i"../../headers" -i"../headers" -d"_DEBUG" -d"LARGE_MODEL" -ml -v28 -@"../main/ADC-I/Debug.lkf" "DSP281x_SysCtrl.c"
+
+[DSP281x_usDelay.asm] "C:\CCStudio_v3.1\C2000\cgtools\bin\cl2000" -g -q -as -fr"F:/jacky281x/main/ADC-I/Debug" -i"../../headers" -i"../headers" -d"_DEBUG" -d"LARGE_MODEL" -ml -v28 -@"../main/ADC-I/Debug.lkf" "DSP281x_usDelay.asm"
+
+[ADC-I.C] "C:\CCStudio_v3.1\C2000\cgtools\bin\cl2000" -g -q -as -fr"F:/jacky281x/main/ADC-I/Debug" -i"../../headers" -i"../headers" -d"_DEBUG" -d"LARGE_MODEL" -ml -v28 -@"Debug.lkf" "ADC-I.C"
+
+[Linking...] "C:\CCStudio_v3.1\C2000\cgtools\bin\cl2000" -@"Debug.lkf"
+<Linking>
+
+Build Complete,
+  0 Errors, 0 Warnings, 0 Remarks.
