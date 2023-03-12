@@ -74,13 +74,13 @@ The program achieves the following functions.
 
 5. Display the A/D conversion result of the input voltage value on the eight-segment digital tube.
 
-6. Indicate the input voltage magnitude by the six lamps of GPIOF, i.e.
+6. Indicate the input voltage magnitude by the six lamps of GPIOF, i.e:
 
-The duty cycle of the first lamp for input voltage U is U/3.
+   - the duty cycle of the first lamp for input voltage U is U/3.
 
-The duty cycle of the sixth lamp brightness is (3-U)/3.
+   - the duty cycle of the sixth lamp brightness is (3-U)/3.
 
-The brightness of the remaining four lamps is arranged in an equal-difference manner.
+   - the brightness of the remaining four lamps is arranged in an equal-difference manner.
 
 ### lab8
 
