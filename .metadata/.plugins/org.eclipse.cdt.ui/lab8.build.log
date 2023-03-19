@@ -4,42 +4,42 @@
 "C:\\Program Files (x86)\\TI\\ccsv7\\utils\\bin\\gmake" -k -j 8 all -O 
 'Building file: ../DSP281x_CpuTimers.c'
 'Invoking: C2000 Compiler'
-"C:/Program Files (x86)/TI/ccsv7/tools/compiler/ti-cgt-c2000_16.9.3.LTS/bin/cl2000" -v28 -ml -mt --include_path="C:/Users/Eduard/workspace_v7/lab8" --include_path="C:/Users/Eduard/workspace_v7/dsplab281x/headers" --include_path="C:/Program Files (x86)/TI/ccsv7/tools/compiler/ti-cgt-c2000_16.9.3.LTS/include" -g --diag_warning=225 --diag_wrap=off --display_error_number --preproc_with_compile --preproc_dependency="DSP281x_CpuTimers.d"  "../DSP281x_CpuTimers.c"
+"C:/Program Files (x86)/TI/ccsv7/tools/compiler/ti-cgt-c2000_16.9.3.LTS/bin/cl2000" -v28 -ml -mt --include_path="C:/Users/Eduard/workspace_v7/lab8" --include_path="../../dsplab281x/headers" --include_path="C:/Program Files (x86)/TI/ccsv7/tools/compiler/ti-cgt-c2000_16.9.3.LTS/include" --advice:performance=all -g --diag_warning=225 --diag_wrap=off --display_error_number --preproc_with_compile --preproc_dependency="DSP281x_CpuTimers.d"  "../DSP281x_CpuTimers.c"
 'Finished building: ../DSP281x_CpuTimers.c'
-' '
-'Building file: ../DSP281x_PieCtrl.c'
-'Invoking: C2000 Compiler'
-"C:/Program Files (x86)/TI/ccsv7/tools/compiler/ti-cgt-c2000_16.9.3.LTS/bin/cl2000" -v28 -ml -mt --include_path="C:/Users/Eduard/workspace_v7/lab8" --include_path="C:/Users/Eduard/workspace_v7/dsplab281x/headers" --include_path="C:/Program Files (x86)/TI/ccsv7/tools/compiler/ti-cgt-c2000_16.9.3.LTS/include" -g --diag_warning=225 --diag_wrap=off --display_error_number --preproc_with_compile --preproc_dependency="DSP281x_PieCtrl.d"  "../DSP281x_PieCtrl.c"
-'Finished building: ../DSP281x_PieCtrl.c'
 ' '
 'Building file: ../DSP281x_DefaultIsr.c'
 'Invoking: C2000 Compiler'
-"C:/Program Files (x86)/TI/ccsv7/tools/compiler/ti-cgt-c2000_16.9.3.LTS/bin/cl2000" -v28 -ml -mt --include_path="C:/Users/Eduard/workspace_v7/lab8" --include_path="C:/Users/Eduard/workspace_v7/dsplab281x/headers" --include_path="C:/Program Files (x86)/TI/ccsv7/tools/compiler/ti-cgt-c2000_16.9.3.LTS/include" -g --diag_warning=225 --diag_wrap=off --display_error_number --preproc_with_compile --preproc_dependency="DSP281x_DefaultIsr.d"  "../DSP281x_DefaultIsr.c"
+"C:/Program Files (x86)/TI/ccsv7/tools/compiler/ti-cgt-c2000_16.9.3.LTS/bin/cl2000" -v28 -ml -mt --include_path="C:/Users/Eduard/workspace_v7/lab8" --include_path="../../dsplab281x/headers" --include_path="C:/Program Files (x86)/TI/ccsv7/tools/compiler/ti-cgt-c2000_16.9.3.LTS/include" --advice:performance=all -g --diag_warning=225 --diag_wrap=off --display_error_number --preproc_with_compile --preproc_dependency="DSP281x_DefaultIsr.d"  "../DSP281x_DefaultIsr.c"
 'Finished building: ../DSP281x_DefaultIsr.c'
 ' '
-'Building file: ../DSP281x_SysCtrl.c'
+'Building file: ../DSP281x_PieCtrl.c'
 'Invoking: C2000 Compiler'
-"C:/Program Files (x86)/TI/ccsv7/tools/compiler/ti-cgt-c2000_16.9.3.LTS/bin/cl2000" -v28 -ml -mt --include_path="C:/Users/Eduard/workspace_v7/lab8" --include_path="C:/Users/Eduard/workspace_v7/dsplab281x/headers" --include_path="C:/Program Files (x86)/TI/ccsv7/tools/compiler/ti-cgt-c2000_16.9.3.LTS/include" -g --diag_warning=225 --diag_wrap=off --display_error_number --preproc_with_compile --preproc_dependency="DSP281x_SysCtrl.d"  "../DSP281x_SysCtrl.c"
-'Finished building: ../DSP281x_SysCtrl.c'
+"C:/Program Files (x86)/TI/ccsv7/tools/compiler/ti-cgt-c2000_16.9.3.LTS/bin/cl2000" -v28 -ml -mt --include_path="C:/Users/Eduard/workspace_v7/lab8" --include_path="../../dsplab281x/headers" --include_path="C:/Program Files (x86)/TI/ccsv7/tools/compiler/ti-cgt-c2000_16.9.3.LTS/include" --advice:performance=all -g --diag_warning=225 --diag_wrap=off --display_error_number --preproc_with_compile --preproc_dependency="DSP281x_PieCtrl.d"  "../DSP281x_PieCtrl.c"
+'Finished building: ../DSP281x_PieCtrl.c'
 ' '
 'Building file: ../DSP281x_PieVect.c'
 'Invoking: C2000 Compiler'
-"C:/Program Files (x86)/TI/ccsv7/tools/compiler/ti-cgt-c2000_16.9.3.LTS/bin/cl2000" -v28 -ml -mt --include_path="C:/Users/Eduard/workspace_v7/lab8" --include_path="C:/Users/Eduard/workspace_v7/dsplab281x/headers" --include_path="C:/Program Files (x86)/TI/ccsv7/tools/compiler/ti-cgt-c2000_16.9.3.LTS/include" -g --diag_warning=225 --diag_wrap=off --display_error_number --preproc_with_compile --preproc_dependency="DSP281x_PieVect.d"  "../DSP281x_PieVect.c"
+"C:/Program Files (x86)/TI/ccsv7/tools/compiler/ti-cgt-c2000_16.9.3.LTS/bin/cl2000" -v28 -ml -mt --include_path="C:/Users/Eduard/workspace_v7/lab8" --include_path="../../dsplab281x/headers" --include_path="C:/Program Files (x86)/TI/ccsv7/tools/compiler/ti-cgt-c2000_16.9.3.LTS/include" --advice:performance=all -g --diag_warning=225 --diag_wrap=off --display_error_number --preproc_with_compile --preproc_dependency="DSP281x_PieVect.d"  "../DSP281x_PieVect.c"
 'Finished building: ../DSP281x_PieVect.c'
+' '
+'Building file: ../DSP281x_SysCtrl.c'
+'Invoking: C2000 Compiler'
+"C:/Program Files (x86)/TI/ccsv7/tools/compiler/ti-cgt-c2000_16.9.3.LTS/bin/cl2000" -v28 -ml -mt --include_path="C:/Users/Eduard/workspace_v7/lab8" --include_path="../../dsplab281x/headers" --include_path="C:/Program Files (x86)/TI/ccsv7/tools/compiler/ti-cgt-c2000_16.9.3.LTS/include" --advice:performance=all -g --diag_warning=225 --diag_wrap=off --display_error_number --preproc_with_compile --preproc_dependency="DSP281x_SysCtrl.d"  "../DSP281x_SysCtrl.c"
+'Finished building: ../DSP281x_SysCtrl.c'
 ' '
 'Building file: ../DSP281x_GlobalVariableDefs.c'
 'Invoking: C2000 Compiler'
-"C:/Program Files (x86)/TI/ccsv7/tools/compiler/ti-cgt-c2000_16.9.3.LTS/bin/cl2000" -v28 -ml -mt --include_path="C:/Users/Eduard/workspace_v7/lab8" --include_path="C:/Users/Eduard/workspace_v7/dsplab281x/headers" --include_path="C:/Program Files (x86)/TI/ccsv7/tools/compiler/ti-cgt-c2000_16.9.3.LTS/include" -g --diag_warning=225 --diag_wrap=off --display_error_number --preproc_with_compile --preproc_dependency="DSP281x_GlobalVariableDefs.d"  "../DSP281x_GlobalVariableDefs.c"
+"C:/Program Files (x86)/TI/ccsv7/tools/compiler/ti-cgt-c2000_16.9.3.LTS/bin/cl2000" -v28 -ml -mt --include_path="C:/Users/Eduard/workspace_v7/lab8" --include_path="../../dsplab281x/headers" --include_path="C:/Program Files (x86)/TI/ccsv7/tools/compiler/ti-cgt-c2000_16.9.3.LTS/include" --advice:performance=all -g --diag_warning=225 --diag_wrap=off --display_error_number --preproc_with_compile --preproc_dependency="DSP281x_GlobalVariableDefs.d"  "../DSP281x_GlobalVariableDefs.c"
 'Finished building: ../DSP281x_GlobalVariableDefs.c'
 ' '
 'Building file: ../Exam.c'
 'Invoking: C2000 Compiler'
-"C:/Program Files (x86)/TI/ccsv7/tools/compiler/ti-cgt-c2000_16.9.3.LTS/bin/cl2000" -v28 -ml -mt --include_path="C:/Users/Eduard/workspace_v7/lab8" --include_path="C:/Users/Eduard/workspace_v7/dsplab281x/headers" --include_path="C:/Program Files (x86)/TI/ccsv7/tools/compiler/ti-cgt-c2000_16.9.3.LTS/include" -g --diag_warning=225 --diag_wrap=off --display_error_number --preproc_with_compile --preproc_dependency="Exam.d"  "../Exam.c"
+"C:/Program Files (x86)/TI/ccsv7/tools/compiler/ti-cgt-c2000_16.9.3.LTS/bin/cl2000" -v28 -ml -mt --include_path="C:/Users/Eduard/workspace_v7/lab8" --include_path="../../dsplab281x/headers" --include_path="C:/Program Files (x86)/TI/ccsv7/tools/compiler/ti-cgt-c2000_16.9.3.LTS/include" --advice:performance=all -g --diag_warning=225 --diag_wrap=off --display_error_number --preproc_with_compile --preproc_dependency="Exam.d"  "../Exam.c"
 'Finished building: ../Exam.c'
 ' '
 'Building target: lab8.out'
 'Invoking: C2000 Linker'
-"C:/Program Files (x86)/TI/ccsv7/tools/compiler/ti-cgt-c2000_16.9.3.LTS/bin/cl2000" -v28 -ml -mt -g --diag_warning=225 --diag_wrap=off --display_error_number -z -m"lab8.map" --stack_size=0x400 --warn_sections -i"C:/Program Files (x86)/TI/ccsv7/tools/compiler/ti-cgt-c2000_16.9.3.LTS/lib" -i"C:/Program Files (x86)/TI/ccsv7/tools/compiler/ti-cgt-c2000_16.9.3.LTS/include" --reread_libs --diag_wrap=off --display_error_number --xml_link_info="lab8_linkInfo.xml" --rom_model -o "lab8.out" "./DSP281x_CpuTimers.obj" "./DSP281x_DefaultIsr.obj" "./DSP281x_GlobalVariableDefs.obj" "./DSP281x_PieCtrl.obj" "./DSP281x_PieVect.obj" "./DSP281x_SysCtrl.obj" "./Exam.obj" "../DSP281x_Headers_nonBIOS.cmd" "../F2812_EzDSP_RAM_lnk.cmd"  -llibc.a 
+"C:/Program Files (x86)/TI/ccsv7/tools/compiler/ti-cgt-c2000_16.9.3.LTS/bin/cl2000" -v28 -ml -mt --advice:performance=all -g --diag_warning=225 --diag_wrap=off --display_error_number -z -m"lab8.map" --stack_size=0x400 --warn_sections -i"C:/Program Files (x86)/TI/ccsv7/tools/compiler/ti-cgt-c2000_16.9.3.LTS/lib" -i"C:/Program Files (x86)/TI/ccsv7/tools/compiler/ti-cgt-c2000_16.9.3.LTS/include" --reread_libs --diag_wrap=off --display_error_number --xml_link_info="lab8_linkInfo.xml" --rom_model -o "lab8.out" "./DSP281x_CpuTimers.obj" "./DSP281x_DefaultIsr.obj" "./DSP281x_GlobalVariableDefs.obj" "./DSP281x_PieCtrl.obj" "./DSP281x_PieVect.obj" "./DSP281x_SysCtrl.obj" "./Exam.obj" "../DSP281x_Headers_nonBIOS.cmd" "../F2812_EzDSP_RAM_lnk.cmd"  -llibc.a 
 <Linking>
 'Finished building target: lab8.out'
 ' '

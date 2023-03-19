@@ -6751,3 +6751,357 @@ gmake[1]: 'lab7.out' is up to date.
 ' '
 
 **** Build Finished ****
+
+**** Clean-only build of configuration Debug for project lab8 ****
+
+"C:\\Program Files (x86)\\TI\\ccsv7\\utils\\bin\\gmake" -k -j 8 clean -O 
+DEL /F  "lab8.hex"  "lab8.out" 
+DEL /F "DSP281x_CpuTimers.obj" "DSP281x_DefaultIsr.obj" "DSP281x_GlobalVariableDefs.obj" "DSP281x_PieCtrl.obj" "DSP281x_PieVect.obj" "DSP281x_SysCtrl.obj" "Exam.obj" 
+DEL /F "DSP281x_CpuTimers.d" "DSP281x_DefaultIsr.d" "DSP281x_GlobalVariableDefs.d" "DSP281x_PieCtrl.d" "DSP281x_PieVect.d" "DSP281x_SysCtrl.d" "Exam.d" 
+'Finished clean'
+' '
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project lab8 ****
+
+"C:\\Program Files (x86)\\TI\\ccsv7\\utils\\bin\\gmake" -k -j 8 all -O 
+'Building file: ../DSP281x_CpuTimers.c'
+'Invoking: C2000 Compiler'
+"C:/Program Files (x86)/TI/ccsv7/tools/compiler/ti-cgt-c2000_16.9.3.LTS/bin/cl2000" -v28 -ml -mt --include_path="C:/Users/Eduard/workspace_v7/lab8" --include_path="C:/Program Files (x86)/TI/ccsv7/tools/compiler/ti-cgt-c2000_16.9.3.LTS/include" -g --diag_warning=225 --diag_wrap=off --display_error_number --preproc_with_compile --preproc_dependency="DSP281x_CpuTimers.d"  "../DSP281x_CpuTimers.c"
+
+>> Compilation failure
+subdir_rules.mk:9: recipe for target 'DSP281x_CpuTimers.obj' failed
+"../DSP281x_CpuTimers.c", line 25: fatal error #1965: cannot open source file "DSP281x_Device.h"
+1 catastrophic error detected in the compilation of "../DSP281x_CpuTimers.c".
+Compilation terminated.
+gmake: *** [DSP281x_CpuTimers.obj] Error 1
+'Building file: ../DSP281x_DefaultIsr.c'
+'Invoking: C2000 Compiler'
+"C:/Program Files (x86)/TI/ccsv7/tools/compiler/ti-cgt-c2000_16.9.3.LTS/bin/cl2000" -v28 -ml -mt --include_path="C:/Users/Eduard/workspace_v7/lab8" --include_path="C:/Program Files (x86)/TI/ccsv7/tools/compiler/ti-cgt-c2000_16.9.3.LTS/include" -g --diag_warning=225 --diag_wrap=off --display_error_number --preproc_with_compile --preproc_dependency="DSP281x_DefaultIsr.d"  "../DSP281x_DefaultIsr.c"
+
+>> Compilation failure
+subdir_rules.mk:16: recipe for target 'DSP281x_DefaultIsr.obj' failed
+"../DSP281x_DefaultIsr.c", line 18: fatal error #1965: cannot open source file "DSP281x_Device.h"
+1 catastrophic error detected in the compilation of "../DSP281x_DefaultIsr.c".
+Compilation terminated.
+gmake: *** [DSP281x_DefaultIsr.obj] Error 1
+'Building file: ../DSP281x_GlobalVariableDefs.c'
+'Invoking: C2000 Compiler'
+"C:/Program Files (x86)/TI/ccsv7/tools/compiler/ti-cgt-c2000_16.9.3.LTS/bin/cl2000" -v28 -ml -mt --include_path="C:/Users/Eduard/workspace_v7/lab8" --include_path="C:/Program Files (x86)/TI/ccsv7/tools/compiler/ti-cgt-c2000_16.9.3.LTS/include" -g --diag_warning=225 --diag_wrap=off --display_error_number --preproc_with_compile --preproc_dependency="DSP281x_GlobalVariableDefs.d"  "../DSP281x_GlobalVariableDefs.c"
+
+>> Compilation failure
+subdir_rules.mk:23: recipe for target 'DSP281x_GlobalVariableDefs.obj' failed
+"../DSP281x_GlobalVariableDefs.c", line 15: fatal error #1965: cannot open source file "DSP281x_Device.h"
+1 catastrophic error detected in the compilation of "../DSP281x_GlobalVariableDefs.c".
+Compilation terminated.
+gmake: *** [DSP281x_GlobalVariableDefs.obj] Error 1
+'Building file: ../DSP281x_PieCtrl.c'
+'Invoking: C2000 Compiler'
+"C:/Program Files (x86)/TI/ccsv7/tools/compiler/ti-cgt-c2000_16.9.3.LTS/bin/cl2000" -v28 -ml -mt --include_path="C:/Users/Eduard/workspace_v7/lab8" --include_path="C:/Program Files (x86)/TI/ccsv7/tools/compiler/ti-cgt-c2000_16.9.3.LTS/include" -g --diag_warning=225 --diag_wrap=off --display_error_number --preproc_with_compile --preproc_dependency="DSP281x_PieCtrl.d"  "../DSP281x_PieCtrl.c"
+
+>> Compilation failure
+subdir_rules.mk:30: recipe for target 'DSP281x_PieCtrl.obj' failed
+"../DSP281x_PieCtrl.c", line 17: fatal error #1965: cannot open source file "DSP281x_Device.h"
+1 catastrophic error detected in the compilation of "../DSP281x_PieCtrl.c".
+Compilation terminated.
+gmake: *** [DSP281x_PieCtrl.obj] Error 1
+'Building file: ../DSP281x_PieVect.c'
+'Invoking: C2000 Compiler'
+"C:/Program Files (x86)/TI/ccsv7/tools/compiler/ti-cgt-c2000_16.9.3.LTS/bin/cl2000" -v28 -ml -mt --include_path="C:/Users/Eduard/workspace_v7/lab8" --include_path="C:/Program Files (x86)/TI/ccsv7/tools/compiler/ti-cgt-c2000_16.9.3.LTS/include" -g --diag_warning=225 --diag_wrap=off --display_error_number --preproc_with_compile --preproc_dependency="DSP281x_PieVect.d"  "../DSP281x_PieVect.c"
+
+>> Compilation failure
+subdir_rules.mk:37: recipe for target 'DSP281x_PieVect.obj' failed
+"../DSP281x_PieVect.c", line 15: fatal error #1965: cannot open source file "DSP281x_Device.h"
+1 catastrophic error detected in the compilation of "../DSP281x_PieVect.c".
+Compilation terminated.
+gmake: *** [DSP281x_PieVect.obj] Error 1
+'Building file: ../DSP281x_SysCtrl.c'
+'Invoking: C2000 Compiler'
+"C:/Program Files (x86)/TI/ccsv7/tools/compiler/ti-cgt-c2000_16.9.3.LTS/bin/cl2000" -v28 -ml -mt --include_path="C:/Users/Eduard/workspace_v7/lab8" --include_path="C:/Program Files (x86)/TI/ccsv7/tools/compiler/ti-cgt-c2000_16.9.3.LTS/include" -g --diag_warning=225 --diag_wrap=off --display_error_number --preproc_with_compile --preproc_dependency="DSP281x_SysCtrl.d"  "../DSP281x_SysCtrl.c"
+
+>> Compilation failure
+subdir_rules.mk:44: recipe for target 'DSP281x_SysCtrl.obj' failed
+"../DSP281x_SysCtrl.c", line 28: fatal error #1965: cannot open source file "DSP281x_Device.h"
+1 catastrophic error detected in the compilation of "../DSP281x_SysCtrl.c".
+Compilation terminated.
+gmake: *** [DSP281x_SysCtrl.obj] Error 1
+'Building file: ../Exam.c'
+'Invoking: C2000 Compiler'
+"C:/Program Files (x86)/TI/ccsv7/tools/compiler/ti-cgt-c2000_16.9.3.LTS/bin/cl2000" -v28 -ml -mt --include_path="C:/Users/Eduard/workspace_v7/lab8" --include_path="C:/Program Files (x86)/TI/ccsv7/tools/compiler/ti-cgt-c2000_16.9.3.LTS/include" -g --diag_warning=225 --diag_wrap=off --display_error_number --preproc_with_compile --preproc_dependency="Exam.d"  "../Exam.c"
+
+>> Compilation failure
+subdir_rules.mk:51: recipe for target 'Exam.obj' failed
+"../Exam.c", line 1: fatal error #1965: cannot open source file "DSP281x_Device.h"
+1 catastrophic error detected in the compilation of "../Exam.c".
+Compilation terminated.
+gmake: *** [Exam.obj] Error 1
+gmake: Target 'all' not remade because of errors.
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project lab8 ****
+
+"C:\\Program Files (x86)\\TI\\ccsv7\\utils\\bin\\gmake" -k -j 8 all -O 
+'Building file: ../DSP281x_CpuTimers.c'
+'Invoking: C2000 Compiler'
+"C:/Program Files (x86)/TI/ccsv7/tools/compiler/ti-cgt-c2000_16.9.3.LTS/bin/cl2000" -v28 -ml -mt --include_path="C:/Users/Eduard/workspace_v7/lab8" --include_path="C:/Program Files (x86)/TI/ccsv7/tools/compiler/ti-cgt-c2000_16.9.3.LTS/include" -g --diag_warning=225 --diag_wrap=off --display_error_number --preproc_with_compile --preproc_dependency="DSP281x_CpuTimers.d"  "../DSP281x_CpuTimers.c"
+
+>> Compilation failure
+subdir_rules.mk:9: recipe for target 'DSP281x_CpuTimers.obj' failed
+"../DSP281x_CpuTimers.c", line 25: fatal error #1965: cannot open source file "DSP281x_Device.h"
+1 catastrophic error detected in the compilation of "../DSP281x_CpuTimers.c".
+Compilation terminated.
+gmake: *** [DSP281x_CpuTimers.obj] Error 1
+'Building file: ../DSP281x_DefaultIsr.c'
+'Invoking: C2000 Compiler'
+"C:/Program Files (x86)/TI/ccsv7/tools/compiler/ti-cgt-c2000_16.9.3.LTS/bin/cl2000" -v28 -ml -mt --include_path="C:/Users/Eduard/workspace_v7/lab8" --include_path="C:/Program Files (x86)/TI/ccsv7/tools/compiler/ti-cgt-c2000_16.9.3.LTS/include" -g --diag_warning=225 --diag_wrap=off --display_error_number --preproc_with_compile --preproc_dependency="DSP281x_DefaultIsr.d"  "../DSP281x_DefaultIsr.c"
+
+>> Compilation failure
+subdir_rules.mk:16: recipe for target 'DSP281x_DefaultIsr.obj' failed
+"../DSP281x_DefaultIsr.c", line 18: fatal error #1965: cannot open source file "DSP281x_Device.h"
+1 catastrophic error detected in the compilation of "../DSP281x_DefaultIsr.c".
+Compilation terminated.
+gmake: *** [DSP281x_DefaultIsr.obj] Error 1
+'Building file: ../DSP281x_GlobalVariableDefs.c'
+'Invoking: C2000 Compiler'
+"C:/Program Files (x86)/TI/ccsv7/tools/compiler/ti-cgt-c2000_16.9.3.LTS/bin/cl2000" -v28 -ml -mt --include_path="C:/Users/Eduard/workspace_v7/lab8" --include_path="C:/Program Files (x86)/TI/ccsv7/tools/compiler/ti-cgt-c2000_16.9.3.LTS/include" -g --diag_warning=225 --diag_wrap=off --display_error_number --preproc_with_compile --preproc_dependency="DSP281x_GlobalVariableDefs.d"  "../DSP281x_GlobalVariableDefs.c"
+
+>> Compilation failure
+subdir_rules.mk:23: recipe for target 'DSP281x_GlobalVariableDefs.obj' failed
+"../DSP281x_GlobalVariableDefs.c", line 15: fatal error #1965: cannot open source file "DSP281x_Device.h"
+1 catastrophic error detected in the compilation of "../DSP281x_GlobalVariableDefs.c".
+Compilation terminated.
+gmake: *** [DSP281x_GlobalVariableDefs.obj] Error 1
+'Building file: ../DSP281x_PieCtrl.c'
+'Invoking: C2000 Compiler'
+"C:/Program Files (x86)/TI/ccsv7/tools/compiler/ti-cgt-c2000_16.9.3.LTS/bin/cl2000" -v28 -ml -mt --include_path="C:/Users/Eduard/workspace_v7/lab8" --include_path="C:/Program Files (x86)/TI/ccsv7/tools/compiler/ti-cgt-c2000_16.9.3.LTS/include" -g --diag_warning=225 --diag_wrap=off --display_error_number --preproc_with_compile --preproc_dependency="DSP281x_PieCtrl.d"  "../DSP281x_PieCtrl.c"
+
+>> Compilation failure
+subdir_rules.mk:30: recipe for target 'DSP281x_PieCtrl.obj' failed
+"../DSP281x_PieCtrl.c", line 17: fatal error #1965: cannot open source file "DSP281x_Device.h"
+1 catastrophic error detected in the compilation of "../DSP281x_PieCtrl.c".
+Compilation terminated.
+gmake: *** [DSP281x_PieCtrl.obj] Error 1
+'Building file: ../DSP281x_PieVect.c'
+'Invoking: C2000 Compiler'
+"C:/Program Files (x86)/TI/ccsv7/tools/compiler/ti-cgt-c2000_16.9.3.LTS/bin/cl2000" -v28 -ml -mt --include_path="C:/Users/Eduard/workspace_v7/lab8" --include_path="C:/Program Files (x86)/TI/ccsv7/tools/compiler/ti-cgt-c2000_16.9.3.LTS/include" -g --diag_warning=225 --diag_wrap=off --display_error_number --preproc_with_compile --preproc_dependency="DSP281x_PieVect.d"  "../DSP281x_PieVect.c"
+
+>> Compilation failure
+subdir_rules.mk:37: recipe for target 'DSP281x_PieVect.obj' failed
+"../DSP281x_PieVect.c", line 15: fatal error #1965: cannot open source file "DSP281x_Device.h"
+1 catastrophic error detected in the compilation of "../DSP281x_PieVect.c".
+Compilation terminated.
+gmake: *** [DSP281x_PieVect.obj] Error 1
+'Building file: ../DSP281x_SysCtrl.c'
+'Invoking: C2000 Compiler'
+"C:/Program Files (x86)/TI/ccsv7/tools/compiler/ti-cgt-c2000_16.9.3.LTS/bin/cl2000" -v28 -ml -mt --include_path="C:/Users/Eduard/workspace_v7/lab8" --include_path="C:/Program Files (x86)/TI/ccsv7/tools/compiler/ti-cgt-c2000_16.9.3.LTS/include" -g --diag_warning=225 --diag_wrap=off --display_error_number --preproc_with_compile --preproc_dependency="DSP281x_SysCtrl.d"  "../DSP281x_SysCtrl.c"
+
+>> Compilation failure
+subdir_rules.mk:44: recipe for target 'DSP281x_SysCtrl.obj' failed
+"../DSP281x_SysCtrl.c", line 28: fatal error #1965: cannot open source file "DSP281x_Device.h"
+1 catastrophic error detected in the compilation of "../DSP281x_SysCtrl.c".
+Compilation terminated.
+gmake: *** [DSP281x_SysCtrl.obj] Error 1
+'Building file: ../Exam.c'
+'Invoking: C2000 Compiler'
+"C:/Program Files (x86)/TI/ccsv7/tools/compiler/ti-cgt-c2000_16.9.3.LTS/bin/cl2000" -v28 -ml -mt --include_path="C:/Users/Eduard/workspace_v7/lab8" --include_path="C:/Program Files (x86)/TI/ccsv7/tools/compiler/ti-cgt-c2000_16.9.3.LTS/include" -g --diag_warning=225 --diag_wrap=off --display_error_number --preproc_with_compile --preproc_dependency="Exam.d"  "../Exam.c"
+
+>> Compilation failure
+subdir_rules.mk:51: recipe for target 'Exam.obj' failed
+"../Exam.c", line 1: fatal error #1965: cannot open source file "DSP281x_Device.h"
+1 catastrophic error detected in the compilation of "../Exam.c".
+Compilation terminated.
+gmake: *** [Exam.obj] Error 1
+gmake: Target 'all' not remade because of errors.
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project lab8 ****
+
+"C:\\Program Files (x86)\\TI\\ccsv7\\utils\\bin\\gmake" -k -j 8 all -O 
+'Building file: ../DSP281x_PieCtrl.c'
+'Invoking: C2000 Compiler'
+"C:/Program Files (x86)/TI/ccsv7/tools/compiler/ti-cgt-c2000_16.9.3.LTS/bin/cl2000" -v28 -ml -mt --include_path="C:/Users/Eduard/workspace_v7/lab8" --include_path="../../dsplab281x/headers" --include_path="C:/Program Files (x86)/TI/ccsv7/tools/compiler/ti-cgt-c2000_16.9.3.LTS/include" -g --diag_warning=225 --diag_wrap=off --display_error_number --preproc_with_compile --preproc_dependency="DSP281x_PieCtrl.d"  "../DSP281x_PieCtrl.c"
+'Finished building: ../DSP281x_PieCtrl.c'
+' '
+'Building file: ../DSP281x_CpuTimers.c'
+'Invoking: C2000 Compiler'
+"C:/Program Files (x86)/TI/ccsv7/tools/compiler/ti-cgt-c2000_16.9.3.LTS/bin/cl2000" -v28 -ml -mt --include_path="C:/Users/Eduard/workspace_v7/lab8" --include_path="../../dsplab281x/headers" --include_path="C:/Program Files (x86)/TI/ccsv7/tools/compiler/ti-cgt-c2000_16.9.3.LTS/include" -g --diag_warning=225 --diag_wrap=off --display_error_number --preproc_with_compile --preproc_dependency="DSP281x_CpuTimers.d"  "../DSP281x_CpuTimers.c"
+'Finished building: ../DSP281x_CpuTimers.c'
+' '
+'Building file: ../DSP281x_PieVect.c'
+'Invoking: C2000 Compiler'
+"C:/Program Files (x86)/TI/ccsv7/tools/compiler/ti-cgt-c2000_16.9.3.LTS/bin/cl2000" -v28 -ml -mt --include_path="C:/Users/Eduard/workspace_v7/lab8" --include_path="../../dsplab281x/headers" --include_path="C:/Program Files (x86)/TI/ccsv7/tools/compiler/ti-cgt-c2000_16.9.3.LTS/include" -g --diag_warning=225 --diag_wrap=off --display_error_number --preproc_with_compile --preproc_dependency="DSP281x_PieVect.d"  "../DSP281x_PieVect.c"
+'Finished building: ../DSP281x_PieVect.c'
+' '
+'Building file: ../DSP281x_DefaultIsr.c'
+'Invoking: C2000 Compiler'
+"C:/Program Files (x86)/TI/ccsv7/tools/compiler/ti-cgt-c2000_16.9.3.LTS/bin/cl2000" -v28 -ml -mt --include_path="C:/Users/Eduard/workspace_v7/lab8" --include_path="../../dsplab281x/headers" --include_path="C:/Program Files (x86)/TI/ccsv7/tools/compiler/ti-cgt-c2000_16.9.3.LTS/include" -g --diag_warning=225 --diag_wrap=off --display_error_number --preproc_with_compile --preproc_dependency="DSP281x_DefaultIsr.d"  "../DSP281x_DefaultIsr.c"
+'Finished building: ../DSP281x_DefaultIsr.c'
+' '
+'Building file: ../DSP281x_SysCtrl.c'
+'Invoking: C2000 Compiler'
+"C:/Program Files (x86)/TI/ccsv7/tools/compiler/ti-cgt-c2000_16.9.3.LTS/bin/cl2000" -v28 -ml -mt --include_path="C:/Users/Eduard/workspace_v7/lab8" --include_path="../../dsplab281x/headers" --include_path="C:/Program Files (x86)/TI/ccsv7/tools/compiler/ti-cgt-c2000_16.9.3.LTS/include" -g --diag_warning=225 --diag_wrap=off --display_error_number --preproc_with_compile --preproc_dependency="DSP281x_SysCtrl.d"  "../DSP281x_SysCtrl.c"
+'Finished building: ../DSP281x_SysCtrl.c'
+' '
+'Building file: ../Exam.c'
+'Invoking: C2000 Compiler'
+"C:/Program Files (x86)/TI/ccsv7/tools/compiler/ti-cgt-c2000_16.9.3.LTS/bin/cl2000" -v28 -ml -mt --include_path="C:/Users/Eduard/workspace_v7/lab8" --include_path="../../dsplab281x/headers" --include_path="C:/Program Files (x86)/TI/ccsv7/tools/compiler/ti-cgt-c2000_16.9.3.LTS/include" -g --diag_warning=225 --diag_wrap=off --display_error_number --preproc_with_compile --preproc_dependency="Exam.d"  "../Exam.c"
+'Finished building: ../Exam.c'
+' '
+'Building file: ../DSP281x_GlobalVariableDefs.c'
+'Invoking: C2000 Compiler'
+"C:/Program Files (x86)/TI/ccsv7/tools/compiler/ti-cgt-c2000_16.9.3.LTS/bin/cl2000" -v28 -ml -mt --include_path="C:/Users/Eduard/workspace_v7/lab8" --include_path="../../dsplab281x/headers" --include_path="C:/Program Files (x86)/TI/ccsv7/tools/compiler/ti-cgt-c2000_16.9.3.LTS/include" -g --diag_warning=225 --diag_wrap=off --display_error_number --preproc_with_compile --preproc_dependency="DSP281x_GlobalVariableDefs.d"  "../DSP281x_GlobalVariableDefs.c"
+'Finished building: ../DSP281x_GlobalVariableDefs.c'
+' '
+'Building target: lab8.out'
+'Invoking: C2000 Linker'
+"C:/Program Files (x86)/TI/ccsv7/tools/compiler/ti-cgt-c2000_16.9.3.LTS/bin/cl2000" -v28 -ml -mt -g --diag_warning=225 --diag_wrap=off --display_error_number -z -m"lab8.map" --warn_sections -i"C:/Program Files (x86)/TI/ccsv7/tools/compiler/ti-cgt-c2000_16.9.3.LTS/lib" -i"C:/Program Files (x86)/TI/ccsv7/tools/compiler/ti-cgt-c2000_16.9.3.LTS/include" --reread_libs --diag_wrap=off --display_error_number --xml_link_info="lab8_linkInfo.xml" --rom_model -o "lab8.out" "./DSP281x_CpuTimers.obj" "./DSP281x_DefaultIsr.obj" "./DSP281x_GlobalVariableDefs.obj" "./DSP281x_PieCtrl.obj" "./DSP281x_PieVect.obj" "./DSP281x_SysCtrl.obj" "./Exam.obj" "../DSP281x_Headers_nonBIOS.cmd" "../F2812_EzDSP_RAM_lnk.cmd"  -llibc.a 
+<Linking>
+warning #10210-D: creating ".stack" section with default size of 0x400; use the -stack option to change the default size
+'Finished building target: lab8.out'
+' '
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project lab8 ****
+
+"C:\\Program Files (x86)\\TI\\ccsv7\\utils\\bin\\gmake" -k -j 8 all -O 
+'Building file: ../DSP281x_CpuTimers.c'
+'Invoking: C2000 Compiler'
+"C:/Program Files (x86)/TI/ccsv7/tools/compiler/ti-cgt-c2000_16.9.3.LTS/bin/cl2000" -v28 -ml -mt --include_path="C:/Users/Eduard/workspace_v7/lab8" --include_path="../../dsplab281x/headers" --include_path="C:/Program Files (x86)/TI/ccsv7/tools/compiler/ti-cgt-c2000_16.9.3.LTS/include" --advice:performance=all -g --diag_warning=225 --diag_wrap=off --display_error_number --preproc_with_compile --preproc_dependency="DSP281x_CpuTimers.d"  "../DSP281x_CpuTimers.c"
+'Finished building: ../DSP281x_CpuTimers.c'
+' '
+'Building file: ../DSP281x_PieCtrl.c'
+'Invoking: C2000 Compiler'
+"C:/Program Files (x86)/TI/ccsv7/tools/compiler/ti-cgt-c2000_16.9.3.LTS/bin/cl2000" -v28 -ml -mt --include_path="C:/Users/Eduard/workspace_v7/lab8" --include_path="../../dsplab281x/headers" --include_path="C:/Program Files (x86)/TI/ccsv7/tools/compiler/ti-cgt-c2000_16.9.3.LTS/include" --advice:performance=all -g --diag_warning=225 --diag_wrap=off --display_error_number --preproc_with_compile --preproc_dependency="DSP281x_PieCtrl.d"  "../DSP281x_PieCtrl.c"
+'Finished building: ../DSP281x_PieCtrl.c'
+' '
+'Building file: ../DSP281x_DefaultIsr.c'
+'Invoking: C2000 Compiler'
+"C:/Program Files (x86)/TI/ccsv7/tools/compiler/ti-cgt-c2000_16.9.3.LTS/bin/cl2000" -v28 -ml -mt --include_path="C:/Users/Eduard/workspace_v7/lab8" --include_path="../../dsplab281x/headers" --include_path="C:/Program Files (x86)/TI/ccsv7/tools/compiler/ti-cgt-c2000_16.9.3.LTS/include" --advice:performance=all -g --diag_warning=225 --diag_wrap=off --display_error_number --preproc_with_compile --preproc_dependency="DSP281x_DefaultIsr.d"  "../DSP281x_DefaultIsr.c"
+'Finished building: ../DSP281x_DefaultIsr.c'
+' '
+'Building file: ../DSP281x_PieVect.c'
+'Invoking: C2000 Compiler'
+"C:/Program Files (x86)/TI/ccsv7/tools/compiler/ti-cgt-c2000_16.9.3.LTS/bin/cl2000" -v28 -ml -mt --include_path="C:/Users/Eduard/workspace_v7/lab8" --include_path="../../dsplab281x/headers" --include_path="C:/Program Files (x86)/TI/ccsv7/tools/compiler/ti-cgt-c2000_16.9.3.LTS/include" --advice:performance=all -g --diag_warning=225 --diag_wrap=off --display_error_number --preproc_with_compile --preproc_dependency="DSP281x_PieVect.d"  "../DSP281x_PieVect.c"
+'Finished building: ../DSP281x_PieVect.c'
+' '
+'Building file: ../DSP281x_SysCtrl.c'
+'Invoking: C2000 Compiler'
+"C:/Program Files (x86)/TI/ccsv7/tools/compiler/ti-cgt-c2000_16.9.3.LTS/bin/cl2000" -v28 -ml -mt --include_path="C:/Users/Eduard/workspace_v7/lab8" --include_path="../../dsplab281x/headers" --include_path="C:/Program Files (x86)/TI/ccsv7/tools/compiler/ti-cgt-c2000_16.9.3.LTS/include" --advice:performance=all -g --diag_warning=225 --diag_wrap=off --display_error_number --preproc_with_compile --preproc_dependency="DSP281x_SysCtrl.d"  "../DSP281x_SysCtrl.c"
+'Finished building: ../DSP281x_SysCtrl.c'
+' '
+'Building file: ../DSP281x_GlobalVariableDefs.c'
+'Invoking: C2000 Compiler'
+"C:/Program Files (x86)/TI/ccsv7/tools/compiler/ti-cgt-c2000_16.9.3.LTS/bin/cl2000" -v28 -ml -mt --include_path="C:/Users/Eduard/workspace_v7/lab8" --include_path="../../dsplab281x/headers" --include_path="C:/Program Files (x86)/TI/ccsv7/tools/compiler/ti-cgt-c2000_16.9.3.LTS/include" --advice:performance=all -g --diag_warning=225 --diag_wrap=off --display_error_number --preproc_with_compile --preproc_dependency="DSP281x_GlobalVariableDefs.d"  "../DSP281x_GlobalVariableDefs.c"
+'Finished building: ../DSP281x_GlobalVariableDefs.c'
+' '
+'Building file: ../Exam.c'
+'Invoking: C2000 Compiler'
+"C:/Program Files (x86)/TI/ccsv7/tools/compiler/ti-cgt-c2000_16.9.3.LTS/bin/cl2000" -v28 -ml -mt --include_path="C:/Users/Eduard/workspace_v7/lab8" --include_path="../../dsplab281x/headers" --include_path="C:/Program Files (x86)/TI/ccsv7/tools/compiler/ti-cgt-c2000_16.9.3.LTS/include" --advice:performance=all -g --diag_warning=225 --diag_wrap=off --display_error_number --preproc_with_compile --preproc_dependency="Exam.d"  "../Exam.c"
+'Finished building: ../Exam.c'
+' '
+'Building target: lab8.out'
+'Invoking: C2000 Linker'
+"C:/Program Files (x86)/TI/ccsv7/tools/compiler/ti-cgt-c2000_16.9.3.LTS/bin/cl2000" -v28 -ml -mt --advice:performance=all -g --diag_warning=225 --diag_wrap=off --display_error_number -z -m"lab8.map" --stack_size=0x400 --warn_sections -i"C:/Program Files (x86)/TI/ccsv7/tools/compiler/ti-cgt-c2000_16.9.3.LTS/lib" -i"C:/Program Files (x86)/TI/ccsv7/tools/compiler/ti-cgt-c2000_16.9.3.LTS/include" --reread_libs --diag_wrap=off --display_error_number --xml_link_info="lab8_linkInfo.xml" --rom_model -o "lab8.out" "./DSP281x_CpuTimers.obj" "./DSP281x_DefaultIsr.obj" "./DSP281x_GlobalVariableDefs.obj" "./DSP281x_PieCtrl.obj" "./DSP281x_PieVect.obj" "./DSP281x_SysCtrl.obj" "./Exam.obj" "../DSP281x_Headers_nonBIOS.cmd" "../F2812_EzDSP_RAM_lnk.cmd"  -llibc.a 
+<Linking>
+'Finished building target: lab8.out'
+' '
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project lab8 ****
+
+"C:\\Program Files (x86)\\TI\\ccsv7\\utils\\bin\\gmake" -k -j 8 all -O 
+'Building file: ../DSP281x_CpuTimers.c'
+'Invoking: C2000 Compiler'
+"C:/Program Files (x86)/TI/ccsv7/tools/compiler/ti-cgt-c2000_16.9.3.LTS/bin/cl2000" -v28 -ml -mt --include_path="C:/Users/Eduard/workspace_v7/lab8" --include_path="../../dsplab281x/headers" --include_path="C:/Program Files (x86)/TI/ccsv7/tools/compiler/ti-cgt-c2000_16.9.3.LTS/include" --advice:performance=all -g --diag_warning=225 --diag_wrap=off --display_error_number --preproc_with_compile --preproc_dependency="DSP281x_CpuTimers.d"  "../DSP281x_CpuTimers.c"
+'Finished building: ../DSP281x_CpuTimers.c'
+' '
+'Building file: ../DSP281x_DefaultIsr.c'
+'Invoking: C2000 Compiler'
+"C:/Program Files (x86)/TI/ccsv7/tools/compiler/ti-cgt-c2000_16.9.3.LTS/bin/cl2000" -v28 -ml -mt --include_path="C:/Users/Eduard/workspace_v7/lab8" --include_path="../../dsplab281x/headers" --include_path="C:/Program Files (x86)/TI/ccsv7/tools/compiler/ti-cgt-c2000_16.9.3.LTS/include" --advice:performance=all -g --diag_warning=225 --diag_wrap=off --display_error_number --preproc_with_compile --preproc_dependency="DSP281x_DefaultIsr.d"  "../DSP281x_DefaultIsr.c"
+'Finished building: ../DSP281x_DefaultIsr.c'
+' '
+'Building file: ../DSP281x_PieCtrl.c'
+'Invoking: C2000 Compiler'
+"C:/Program Files (x86)/TI/ccsv7/tools/compiler/ti-cgt-c2000_16.9.3.LTS/bin/cl2000" -v28 -ml -mt --include_path="C:/Users/Eduard/workspace_v7/lab8" --include_path="../../dsplab281x/headers" --include_path="C:/Program Files (x86)/TI/ccsv7/tools/compiler/ti-cgt-c2000_16.9.3.LTS/include" --advice:performance=all -g --diag_warning=225 --diag_wrap=off --display_error_number --preproc_with_compile --preproc_dependency="DSP281x_PieCtrl.d"  "../DSP281x_PieCtrl.c"
+'Finished building: ../DSP281x_PieCtrl.c'
+' '
+'Building file: ../DSP281x_PieVect.c'
+'Invoking: C2000 Compiler'
+"C:/Program Files (x86)/TI/ccsv7/tools/compiler/ti-cgt-c2000_16.9.3.LTS/bin/cl2000" -v28 -ml -mt --include_path="C:/Users/Eduard/workspace_v7/lab8" --include_path="../../dsplab281x/headers" --include_path="C:/Program Files (x86)/TI/ccsv7/tools/compiler/ti-cgt-c2000_16.9.3.LTS/include" --advice:performance=all -g --diag_warning=225 --diag_wrap=off --display_error_number --preproc_with_compile --preproc_dependency="DSP281x_PieVect.d"  "../DSP281x_PieVect.c"
+'Finished building: ../DSP281x_PieVect.c'
+' '
+'Building file: ../DSP281x_SysCtrl.c'
+'Invoking: C2000 Compiler'
+"C:/Program Files (x86)/TI/ccsv7/tools/compiler/ti-cgt-c2000_16.9.3.LTS/bin/cl2000" -v28 -ml -mt --include_path="C:/Users/Eduard/workspace_v7/lab8" --include_path="../../dsplab281x/headers" --include_path="C:/Program Files (x86)/TI/ccsv7/tools/compiler/ti-cgt-c2000_16.9.3.LTS/include" --advice:performance=all -g --diag_warning=225 --diag_wrap=off --display_error_number --preproc_with_compile --preproc_dependency="DSP281x_SysCtrl.d"  "../DSP281x_SysCtrl.c"
+'Finished building: ../DSP281x_SysCtrl.c'
+' '
+'Building file: ../DSP281x_GlobalVariableDefs.c'
+'Invoking: C2000 Compiler'
+"C:/Program Files (x86)/TI/ccsv7/tools/compiler/ti-cgt-c2000_16.9.3.LTS/bin/cl2000" -v28 -ml -mt --include_path="C:/Users/Eduard/workspace_v7/lab8" --include_path="../../dsplab281x/headers" --include_path="C:/Program Files (x86)/TI/ccsv7/tools/compiler/ti-cgt-c2000_16.9.3.LTS/include" --advice:performance=all -g --diag_warning=225 --diag_wrap=off --display_error_number --preproc_with_compile --preproc_dependency="DSP281x_GlobalVariableDefs.d"  "../DSP281x_GlobalVariableDefs.c"
+'Finished building: ../DSP281x_GlobalVariableDefs.c'
+' '
+'Building file: ../Exam.c'
+'Invoking: C2000 Compiler'
+"C:/Program Files (x86)/TI/ccsv7/tools/compiler/ti-cgt-c2000_16.9.3.LTS/bin/cl2000" -v28 -ml -mt --include_path="C:/Users/Eduard/workspace_v7/lab8" --include_path="../../dsplab281x/headers" --include_path="C:/Program Files (x86)/TI/ccsv7/tools/compiler/ti-cgt-c2000_16.9.3.LTS/include" --advice:performance=all -g --diag_warning=225 --diag_wrap=off --display_error_number --preproc_with_compile --preproc_dependency="Exam.d"  "../Exam.c"
+'Finished building: ../Exam.c'
+' '
+'Building target: lab8.out'
+'Invoking: C2000 Linker'
+"C:/Program Files (x86)/TI/ccsv7/tools/compiler/ti-cgt-c2000_16.9.3.LTS/bin/cl2000" -v28 -ml -mt --advice:performance=all -g --diag_warning=225 --diag_wrap=off --display_error_number -z -m"lab8.map" --stack_size=0x400 --warn_sections -i"C:/Program Files (x86)/TI/ccsv7/tools/compiler/ti-cgt-c2000_16.9.3.LTS/lib" -i"C:/Program Files (x86)/TI/ccsv7/tools/compiler/ti-cgt-c2000_16.9.3.LTS/include" --reread_libs --diag_wrap=off --display_error_number --xml_link_info="lab8_linkInfo.xml" --rom_model -o "lab8.out" "./DSP281x_CpuTimers.obj" "./DSP281x_DefaultIsr.obj" "./DSP281x_GlobalVariableDefs.obj" "./DSP281x_PieCtrl.obj" "./DSP281x_PieVect.obj" "./DSP281x_SysCtrl.obj" "./Exam.obj" "../DSP281x_Headers_nonBIOS.cmd" "../F2812_EzDSP_RAM_lnk.cmd"  -llibc.a 
+<Linking>
+'Finished building target: lab8.out'
+' '
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project lab8 ****
+
+"C:\\Program Files (x86)\\TI\\ccsv7\\utils\\bin\\gmake" -k -j 8 all -O 
+'Building file: ../DSP281x_CpuTimers.c'
+'Invoking: C2000 Compiler'
+"C:/Program Files (x86)/TI/ccsv7/tools/compiler/ti-cgt-c2000_16.9.3.LTS/bin/cl2000" -v28 -ml -mt --include_path="C:/Users/Eduard/workspace_v7/lab8" --include_path="../../dsplab281x/headers" --include_path="C:/Program Files (x86)/TI/ccsv7/tools/compiler/ti-cgt-c2000_16.9.3.LTS/include" --advice:performance=all -g --diag_warning=225 --diag_wrap=off --display_error_number --preproc_with_compile --preproc_dependency="DSP281x_CpuTimers.d"  "../DSP281x_CpuTimers.c"
+'Finished building: ../DSP281x_CpuTimers.c'
+' '
+'Building file: ../DSP281x_DefaultIsr.c'
+'Invoking: C2000 Compiler'
+"C:/Program Files (x86)/TI/ccsv7/tools/compiler/ti-cgt-c2000_16.9.3.LTS/bin/cl2000" -v28 -ml -mt --include_path="C:/Users/Eduard/workspace_v7/lab8" --include_path="../../dsplab281x/headers" --include_path="C:/Program Files (x86)/TI/ccsv7/tools/compiler/ti-cgt-c2000_16.9.3.LTS/include" --advice:performance=all -g --diag_warning=225 --diag_wrap=off --display_error_number --preproc_with_compile --preproc_dependency="DSP281x_DefaultIsr.d"  "../DSP281x_DefaultIsr.c"
+'Finished building: ../DSP281x_DefaultIsr.c'
+' '
+'Building file: ../DSP281x_PieCtrl.c'
+'Invoking: C2000 Compiler'
+"C:/Program Files (x86)/TI/ccsv7/tools/compiler/ti-cgt-c2000_16.9.3.LTS/bin/cl2000" -v28 -ml -mt --include_path="C:/Users/Eduard/workspace_v7/lab8" --include_path="../../dsplab281x/headers" --include_path="C:/Program Files (x86)/TI/ccsv7/tools/compiler/ti-cgt-c2000_16.9.3.LTS/include" --advice:performance=all -g --diag_warning=225 --diag_wrap=off --display_error_number --preproc_with_compile --preproc_dependency="DSP281x_PieCtrl.d"  "../DSP281x_PieCtrl.c"
+'Finished building: ../DSP281x_PieCtrl.c'
+' '
+'Building file: ../DSP281x_PieVect.c'
+'Invoking: C2000 Compiler'
+"C:/Program Files (x86)/TI/ccsv7/tools/compiler/ti-cgt-c2000_16.9.3.LTS/bin/cl2000" -v28 -ml -mt --include_path="C:/Users/Eduard/workspace_v7/lab8" --include_path="../../dsplab281x/headers" --include_path="C:/Program Files (x86)/TI/ccsv7/tools/compiler/ti-cgt-c2000_16.9.3.LTS/include" --advice:performance=all -g --diag_warning=225 --diag_wrap=off --display_error_number --preproc_with_compile --preproc_dependency="DSP281x_PieVect.d"  "../DSP281x_PieVect.c"
+'Finished building: ../DSP281x_PieVect.c'
+' '
+'Building file: ../DSP281x_SysCtrl.c'
+'Invoking: C2000 Compiler'
+"C:/Program Files (x86)/TI/ccsv7/tools/compiler/ti-cgt-c2000_16.9.3.LTS/bin/cl2000" -v28 -ml -mt --include_path="C:/Users/Eduard/workspace_v7/lab8" --include_path="../../dsplab281x/headers" --include_path="C:/Program Files (x86)/TI/ccsv7/tools/compiler/ti-cgt-c2000_16.9.3.LTS/include" --advice:performance=all -g --diag_warning=225 --diag_wrap=off --display_error_number --preproc_with_compile --preproc_dependency="DSP281x_SysCtrl.d"  "../DSP281x_SysCtrl.c"
+'Finished building: ../DSP281x_SysCtrl.c'
+' '
+'Building file: ../DSP281x_GlobalVariableDefs.c'
+'Invoking: C2000 Compiler'
+"C:/Program Files (x86)/TI/ccsv7/tools/compiler/ti-cgt-c2000_16.9.3.LTS/bin/cl2000" -v28 -ml -mt --include_path="C:/Users/Eduard/workspace_v7/lab8" --include_path="../../dsplab281x/headers" --include_path="C:/Program Files (x86)/TI/ccsv7/tools/compiler/ti-cgt-c2000_16.9.3.LTS/include" --advice:performance=all -g --diag_warning=225 --diag_wrap=off --display_error_number --preproc_with_compile --preproc_dependency="DSP281x_GlobalVariableDefs.d"  "../DSP281x_GlobalVariableDefs.c"
+'Finished building: ../DSP281x_GlobalVariableDefs.c'
+' '
+'Building file: ../Exam.c'
+'Invoking: C2000 Compiler'
+"C:/Program Files (x86)/TI/ccsv7/tools/compiler/ti-cgt-c2000_16.9.3.LTS/bin/cl2000" -v28 -ml -mt --include_path="C:/Users/Eduard/workspace_v7/lab8" --include_path="../../dsplab281x/headers" --include_path="C:/Program Files (x86)/TI/ccsv7/tools/compiler/ti-cgt-c2000_16.9.3.LTS/include" --advice:performance=all -g --diag_warning=225 --diag_wrap=off --display_error_number --preproc_with_compile --preproc_dependency="Exam.d"  "../Exam.c"
+'Finished building: ../Exam.c'
+' '
+'Building target: lab8.out'
+'Invoking: C2000 Linker'
+"C:/Program Files (x86)/TI/ccsv7/tools/compiler/ti-cgt-c2000_16.9.3.LTS/bin/cl2000" -v28 -ml -mt --advice:performance=all -g --diag_warning=225 --diag_wrap=off --display_error_number -z -m"lab8.map" --stack_size=0x400 --warn_sections -i"C:/Program Files (x86)/TI/ccsv7/tools/compiler/ti-cgt-c2000_16.9.3.LTS/lib" -i"C:/Program Files (x86)/TI/ccsv7/tools/compiler/ti-cgt-c2000_16.9.3.LTS/include" --reread_libs --diag_wrap=off --display_error_number --xml_link_info="lab8_linkInfo.xml" --rom_model -o "lab8.out" "./DSP281x_CpuTimers.obj" "./DSP281x_DefaultIsr.obj" "./DSP281x_GlobalVariableDefs.obj" "./DSP281x_PieCtrl.obj" "./DSP281x_PieVect.obj" "./DSP281x_SysCtrl.obj" "./Exam.obj" "../DSP281x_Headers_nonBIOS.cmd" "../F2812_EzDSP_RAM_lnk.cmd"  -llibc.a 
+<Linking>
+'Finished building target: lab8.out'
+' '
+
+**** Build Finished ****

@@ -1,1 +1,0 @@
-"./DSP281x_GlobalVariableDefs.obj" "./PWMled.obj" "../DSP281x_Headers_nonBIOS.cmd" "../F2812_EzDSP_RAM_lnk.cmd" -llibc.a 
